@@ -14,14 +14,18 @@ public class CurrencyManager : MonoBehaviour
 		GameManager.CurrencyManager = this;
 
 		// This for-loop should hook up all the currency updating and stuff.
-		foreach (SO_Currency currency in _currencies) {
+		for ( int i = 0; i < _currencies.Length; i++ ) {
+			SO_Currency currency = _currencies[ i ];
+			
 			SO_Currency _instantiatedCurrency = Instantiate( currency, null );
-			GameObject _newCurrencyUI = Instantiate(_currencyPrefab, transform);
-			string _currencyKey = _instantiatedCurrency.name.Split( "(" )[ 0 ];
+			GameObject _newCurrencyUI = Instantiate( _currencyPrefab, transform );
 
+			_currencies[ i ] = _instantiatedCurrency;
+
+			string _currencyKey = _instantiatedCurrency.PresentableName;
 			_currencyRegister.Add( _currencyKey, _instantiatedCurrency );
 
-			if ( _newCurrencyUI.TryGetComponent( out CurrencyDisplayManager currencyDisplayController)) {
+			if ( _newCurrencyUI.TryGetComponent( out CurrencyDisplayManager currencyDisplayController ) ) {
 				currencyDisplayController.SetCurrency( _instantiatedCurrency );
 			}
 		}
