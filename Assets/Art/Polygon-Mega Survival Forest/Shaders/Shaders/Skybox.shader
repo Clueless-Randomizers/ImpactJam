@@ -44,7 +44,7 @@
                     return o;
                 }
 
-                vector<double, 3> frag(v2f i) : SV_Target
+                vector<float, 3> frag(v2f i) : SV_Target
                 {
                     // Gradient interpolation based on the gradient level
                     float2 gradientCoords = i.uv;
