@@ -1,8 +1,15 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Art/Hexmap Materials/Estuary.mat.meta
 guid: 715c24d9df0844c328774625826d6c58
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 2100000
+========
+guid: 9681233a7aa7599429fe2cbd13e14792
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+>>>>>>>> main:Assets/Resources/Currencies/Food.asset.meta
   userData: 
   assetBundleName: 
   assetBundleVariant: 

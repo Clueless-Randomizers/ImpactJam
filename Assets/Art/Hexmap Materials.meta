@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Art/Hexmap Materials.meta
 guid: d32c96104baccd24cb7096f451232431
+========
+guid: 7c2843f8b315a514a96189583f113137
+>>>>>>>> main:Assets/Prefabs.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
