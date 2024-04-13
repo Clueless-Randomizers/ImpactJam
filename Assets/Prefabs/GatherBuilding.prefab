@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3315799852377238757}
   - component: {fileID: 5454550702440661385}
   - component: {fileID: 1501393631229127193}
+  - component: {fileID: 3844838492064809858}
   m_Layer: 0
   m_Name: GatherBuilding
   m_TagString: Untagged
@@ -46,9 +47,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0510d64f8292b6b419ac7428bdf3c32c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _timeBetweenGathering: 20
-  _timeSpentGathering: 30
+  _timeBetweenGathering: 3
+  _timeSpentGathering: 15
   _buildingCurrency: {fileID: 11400000, guid: 9681233a7aa7599429fe2cbd13e14792, type: 2}
+  _maxGatheringPeople: 5
 --- !u!135 &1501393631229127193
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -70,6 +72,22 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 4.05
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!208 &3844838492064809858
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4194352538829425901}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 0
+  m_Extents: {x: 0.8, y: 0.5, z: 0.8}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &7704766540545742372
 GameObject:
   m_ObjectHideFlags: 0
@@ -81,13 +99,12 @@ GameObject:
   - component: {fileID: 1064711843178732703}
   - component: {fileID: 5481899760797735705}
   - component: {fileID: 8806593835872047250}
-  - component: {fileID: 7239928944012171137}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1064711843178732703
 Transform:
@@ -156,24 +173,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7239928944012171137
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7704766540545742372}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}

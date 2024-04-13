@@ -15,7 +15,7 @@ public class GatheringBuilding : MonoBehaviour
 
 	public float GatheringTime { get { return _timeBetweenGathering; } }
 
-	public float TimeToGather { get { return _timeSpentGathering; } }
+	public float TimeSpentGathering { get { return _timeSpentGathering; } }
 
 	public SO_Currency GetCurrency {  get { return _buildingCurrency; } }
 
