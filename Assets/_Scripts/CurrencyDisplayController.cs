@@ -13,7 +13,7 @@ public class CurrencyDisplayManager : MonoBehaviour
 		_currency = currency;
 		_currency.CurrencyChange.AddListener(UpdateCurrencyText);
 		_currencyValueElement.text = $"{_currency.Value}";
-		_currencyNameElement.text = $"{_currency.name}";
+		_currencyNameElement.text = $"{_currency.name.Split( "(" )[0]}";
 		_currencySpriteElement.sprite = _currency.Icon;
 	}
 

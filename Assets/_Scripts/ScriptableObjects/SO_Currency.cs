@@ -23,5 +23,4 @@ public class SO_Currency : ScriptableObject
 			_currentCurrency = ( _newValue > 0) ? _newValue : 0; 
 		} 
 	}
-
 }
