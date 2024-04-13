@@ -34,6 +34,16 @@ License: ? 100% Commercial free according to Fantasy Wooden GUI : Free
 Link: http://font.woowahan.com/yeonsung/
 Version: ?
 
+## Eflatun.SceneReference
+License: Non Standard EULA  ( Assets/Licenses/EFLATUN.SceneReferences MIT License.txt)
+Link: https://github.com/starikcetin/Eflatun.SceneReference
+Version: 4.0.0
+
+## 
+License: Unity Asset Store
+Link: 
+Version: 
+
 ## 
 License: Unity Asset Store
 Link: 
