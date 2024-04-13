@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: Heritage
   m_EditorClassIdentifier: 
   _currentCurrency: 0
-  _currencyImage: {fileID: 0}
-  _currencyType: 2
+  _currencyImage: {fileID: 21300000, guid: ed58de2266a655f47926c6f8d834bf99, type: 3}
+  CurrencyChange:
+    m_PersistentCalls:
+      m_Calls: []
