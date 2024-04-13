@@ -11,7 +11,6 @@ public class SO_Currency : ScriptableObject
 {
 	[SerializeField] int _currentCurrency = 0;
 	[SerializeField] Sprite _currencyImage;
-	[SerializeField] CurrencyType _currencyType;
 	public Sprite Icon { get { return _currencyImage; } }
 	public UnityEvent CurrencyChange;
 	public int Value { 
@@ -25,10 +24,4 @@ public class SO_Currency : ScriptableObject
 		} 
 	}
 
-}
-[Serializable]
-public enum CurrencyType {
-	Food,
-	Wood,
-	Heritage
 }
