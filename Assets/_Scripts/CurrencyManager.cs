@@ -8,7 +8,7 @@ public class CurrencyManager : MonoBehaviour
 	private Dictionary<string, SO_Currency> _currencyRegister = new();
 
 	// Start is called before the first frame update
-	private void Start()
+	private void Awake()
 	{
 		// Register resource Manager so others can use it easily.
 		GameManager.CurrencyManager = this;
