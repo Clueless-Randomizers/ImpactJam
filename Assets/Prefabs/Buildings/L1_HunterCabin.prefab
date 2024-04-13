@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1501393631229127193}
   - component: {fileID: 3844838492064809858}
   m_Layer: 0
-  m_Name: GatherBuilding
+  m_Name: L1_HunterCabin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
