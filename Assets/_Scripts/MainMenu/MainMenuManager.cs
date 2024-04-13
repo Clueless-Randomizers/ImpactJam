@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Eflatun.SceneReference;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -25,8 +26,8 @@ public class MainMenuManager : MonoBehaviour
         mainMenuStartPanel.SetActive(true);
     }
 
-    public void StartGame(int level)
+    public void StartGame(SceneReference level)
     {
-        SceneManager.LoadScene(level);
+        SceneManager.LoadScene(level.Name);
     }
 }
