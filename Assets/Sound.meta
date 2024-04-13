@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Prefabs.meta
+guid: 765bdec6b814b2e4397355d3200fd644
+========
 guid: 5a0d606a48a7ad440aa43d90ca9d4990
+>>>>>>>> main:Assets/Sound.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
