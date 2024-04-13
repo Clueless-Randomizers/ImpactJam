@@ -23,4 +23,9 @@ public class SO_Currency : ScriptableObject
 			_currentCurrency = ( _newValue > 0) ? _newValue : 0; 
 		} 
 	}
+
+	/// <summary>
+	/// Returns string representation of name without (clone) 
+	/// </summary>
+	public string PresentableName { get { return name.Split( "(" )[ 0 ]; }  }
 }
