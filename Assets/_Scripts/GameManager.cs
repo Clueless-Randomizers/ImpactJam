@@ -4,5 +4,5 @@ using UnityEngine;
 
 public static class GameManager 
 {
-	static public ResourceManager ResourceManager;
+	static public CurrencyManager CurrencyManager;
 }

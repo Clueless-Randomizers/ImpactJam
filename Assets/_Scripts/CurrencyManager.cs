@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ResourceManager : MonoBehaviour
+public class CurrencyManager : MonoBehaviour
 {
 	[SerializeField] private SO_Currency[] _currencies;
 	[SerializeField] private GameObject _currencyPrefab;
@@ -11,7 +11,7 @@ public class ResourceManager : MonoBehaviour
 	private void Start()
 	{
 		// Register resource Manager so others can use it easily.
-		GameManager.ResourceManager = this;
+		GameManager.CurrencyManager = this;
 
 		// This for-loop should hook up all the currency updating and stuff.
 		foreach (SO_Currency currency in _currencies) {
@@ -25,7 +25,7 @@ public class ResourceManager : MonoBehaviour
 				currencyDisplayController.SetCurrency( _instantiatedCurrency );
 			}
 		}
-		Debug.Log(GameManager.ResourceManager.GetCurrency("Food"));
+		Debug.Log(GameManager.CurrencyManager.GetCurrency("Food"));
 	}
 
 	public SO_Currency GetCurrency (string name) {
