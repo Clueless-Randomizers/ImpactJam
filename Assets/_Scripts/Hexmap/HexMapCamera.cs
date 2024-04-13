@@ -25,6 +25,9 @@ namespace _Scripts.Hexmap
 		private float rotationAngle;
 
 		private static HexMapCamera _instance;
+		
+		private InputSystem_Actions inputActions;
+
 
 		/// <summary>
 		/// Whether the singleton camera controls are locked.
@@ -43,33 +46,38 @@ namespace _Scripts.Hexmap
 		{
 			swivel = transform.GetChild(0);
 			stick = swivel.GetChild(0);
+			
+			inputActions = new InputSystem_Actions();
 		}
 
 		private void OnEnable()
 		{
 			_instance = this;
 			ValidatePosition();
+			inputActions.Enable();
 		}
-
+		private void OnDisable()
+		{
+			inputActions.Disable();
+		}
 		private void Update()
 		{
-			float zoomDelta = Input.GetAxis("Mouse ScrollWheel");
+			float zoomDelta = inputActions.CameraControls.MouseScrollWheel.ReadValue<float>(); // replace "MyActionMap" and "MouseScrollWheel" with the names you used in the Input Actions asset
 			if (zoomDelta != 0f)
 			{
 				AdjustZoom(zoomDelta);
 			}
 
-			float rotationDelta = Input.GetAxis("Rotation");
+			float rotationDelta = inputActions.CameraControls.Rotate.ReadValue<float>();
 			if (rotationDelta != 0f)
 			{
 				AdjustRotation(rotationDelta);
 			}
 
-			float xDelta = Input.GetAxis("Horizontal");
-			float zDelta = Input.GetAxis("Vertical");
-			if (xDelta != 0f || zDelta != 0f)
+			Vector2 moveDelta = inputActions.CameraControls.Move.ReadValue<Vector2>();
+			if (moveDelta != Vector2.zero)
 			{
-				AdjustPosition(xDelta, zDelta);
+				AdjustPosition(moveDelta.x, moveDelta.y);
 			}
 		}
 
