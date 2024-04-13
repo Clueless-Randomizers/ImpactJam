@@ -5,10 +5,14 @@ public class ResourceManager : MonoBehaviour
 {
 	[SerializeField] private SO_Currency[] _currencies;
 	[SerializeField] private GameObject _currencyPrefab;
+	private Dictionary<string, SO_Currency> _currencyRegister = new();
 
 	// Start is called before the first frame update
 	private void Start()
 	{
+		// Register resource Manager so others can use it easily.
+		GameManager.ResourceManager = this;
+
 		// This for-loop should hook up all the currency updating and stuff.
 		foreach (SO_Currency currency in _currencies) {
 			SO_Currency _instantiatedCurrency = Instantiate( currency, null );
