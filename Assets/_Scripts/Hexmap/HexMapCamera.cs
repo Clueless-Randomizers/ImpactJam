@@ -62,7 +62,8 @@ namespace _Scripts.Hexmap
 		}
 		private void Update()
 		{
-			float zoomDelta = inputActions.CameraControls.MouseScrollWheel.ReadValue<float>(); // replace "MyActionMap" and "MouseScrollWheel" with the names you used in the Input Actions asset
+			Vector2 scrollDelta = inputActions.CameraControls.MouseScrollWheel.ReadValue<Vector2>();
+			float zoomDelta = scrollDelta.y;
 			if (zoomDelta != 0f)
 			{
 				AdjustZoom(zoomDelta);

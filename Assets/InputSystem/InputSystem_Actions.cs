@@ -25,6 +25,184 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     ""name"": ""InputSystem_Actions"",
     ""maps"": [
         {
+            ""name"": ""CameraControls"",
+            ""id"": ""abe4a1c7-25cb-47d4-bc26-55542ffa092f"",
+            ""actions"": [
+                {
+                    ""name"": ""Move"",
+                    ""type"": ""Value"",
+                    ""id"": ""a3631ea2-171c-42af-a70f-3c3e9550daeb"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""MouseScrollWheel"",
+                    ""type"": ""Value"",
+                    ""id"": ""b9127348-8737-45fe-afd9-35babd4f22bf"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Rotate"",
+                    ""type"": ""Value"",
+                    ""id"": ""3c2f02ef-8d06-47de-aeb3-7e029d42c21b"",
+                    ""expectedControlType"": ""Digital"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""b0d24b62-1e06-41bb-a16f-a52d836690fb"",
+                    ""path"": ""<Mouse>/scroll"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""MouseScrollWheel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e76ae5e5-7523-44d7-9bc6-a6577d71dc6b"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e0a01ca9-a8a0-48fb-964a-52eb7ae7ad0d"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""WASD"",
+                    ""id"": ""8309c57f-73bc-480f-bd4c-1ede834b7076"",
+                    ""path"": ""Dpad"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""136e75f3-0ac8-407a-8f5d-7d843559cb78"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""58406bfa-a15d-4636-847d-290bbe39d264"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""dbb01ada-5326-4903-a213-d9721045ad94"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""735457a8-dac0-48ed-980e-3232f992737e"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""54e193bb-d780-4959-a47c-b47ed690f88d"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""70860e13-4c59-4357-92eb-e9bc0938153d"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""51edcd61-c8e7-41fb-9069-1a237dae5eb8"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""36e8f690-cd22-49b4-a615-ca2648356842"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""db70a5aa-9b14-48d3-809b-3f294fb6ee02"",
+                    ""path"": ""<Joystick>/stick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Joystick"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
             ""name"": ""Player"",
             ""id"": ""df70fa95-8a34-4494-b137-73ab6b9c7d37"",
             ""actions"": [
@@ -1013,74 +1191,6 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
-        },
-        {
-            ""name"": ""CameraControls"",
-            ""id"": ""abe4a1c7-25cb-47d4-bc26-55542ffa092f"",
-            ""actions"": [
-                {
-                    ""name"": ""MouseScrollWheel"",
-                    ""type"": ""Button"",
-                    ""id"": ""b9127348-8737-45fe-afd9-35babd4f22bf"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Rotate"",
-                    ""type"": ""Button"",
-                    ""id"": ""3c2f02ef-8d06-47de-aeb3-7e029d42c21b"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Move"",
-                    ""type"": ""Value"",
-                    ""id"": ""a3631ea2-171c-42af-a70f-3c3e9550daeb"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                }
-            ],
-            ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""b0d24b62-1e06-41bb-a16f-a52d836690fb"",
-                    ""path"": """",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""MouseScrollWheel"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""e76ae5e5-7523-44d7-9bc6-a6577d71dc6b"",
-                    ""path"": """",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Rotate"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""3d824f89-9d14-4ccc-bf7c-e5a8af7c25be"",
-                    ""path"": """",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                }
-            ]
         }
     ],
     ""controlSchemes"": [
@@ -1146,6 +1256,11 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         }
     ]
 }");
+        // CameraControls
+        m_CameraControls = asset.FindActionMap("CameraControls", throwIfNotFound: true);
+        m_CameraControls_Move = m_CameraControls.FindAction("Move", throwIfNotFound: true);
+        m_CameraControls_MouseScrollWheel = m_CameraControls.FindAction("MouseScrollWheel", throwIfNotFound: true);
+        m_CameraControls_Rotate = m_CameraControls.FindAction("Rotate", throwIfNotFound: true);
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
@@ -1169,18 +1284,13 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         m_UI_ScrollWheel = m_UI.FindAction("ScrollWheel", throwIfNotFound: true);
         m_UI_TrackedDevicePosition = m_UI.FindAction("TrackedDevicePosition", throwIfNotFound: true);
         m_UI_TrackedDeviceOrientation = m_UI.FindAction("TrackedDeviceOrientation", throwIfNotFound: true);
-        // CameraControls
-        m_CameraControls = asset.FindActionMap("CameraControls", throwIfNotFound: true);
-        m_CameraControls_MouseScrollWheel = m_CameraControls.FindAction("MouseScrollWheel", throwIfNotFound: true);
-        m_CameraControls_Rotate = m_CameraControls.FindAction("Rotate", throwIfNotFound: true);
-        m_CameraControls_Move = m_CameraControls.FindAction("Move", throwIfNotFound: true);
     }
 
     ~@InputSystem_Actions()
     {
+        Debug.Assert(!m_CameraControls.enabled, "This will cause a leak and performance issues, InputSystem_Actions.CameraControls.Disable() has not been called.");
         Debug.Assert(!m_Player.enabled, "This will cause a leak and performance issues, InputSystem_Actions.Player.Disable() has not been called.");
         Debug.Assert(!m_UI.enabled, "This will cause a leak and performance issues, InputSystem_Actions.UI.Disable() has not been called.");
-        Debug.Assert(!m_CameraControls.enabled, "This will cause a leak and performance issues, InputSystem_Actions.CameraControls.Disable() has not been called.");
     }
 
     public void Dispose()
@@ -1238,6 +1348,68 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     {
         return asset.FindBinding(bindingMask, out action);
     }
+
+    // CameraControls
+    private readonly InputActionMap m_CameraControls;
+    private List<ICameraControlsActions> m_CameraControlsActionsCallbackInterfaces = new List<ICameraControlsActions>();
+    private readonly InputAction m_CameraControls_Move;
+    private readonly InputAction m_CameraControls_MouseScrollWheel;
+    private readonly InputAction m_CameraControls_Rotate;
+    public struct CameraControlsActions
+    {
+        private @InputSystem_Actions m_Wrapper;
+        public CameraControlsActions(@InputSystem_Actions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Move => m_Wrapper.m_CameraControls_Move;
+        public InputAction @MouseScrollWheel => m_Wrapper.m_CameraControls_MouseScrollWheel;
+        public InputAction @Rotate => m_Wrapper.m_CameraControls_Rotate;
+        public InputActionMap Get() { return m_Wrapper.m_CameraControls; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(CameraControlsActions set) { return set.Get(); }
+        public void AddCallbacks(ICameraControlsActions instance)
+        {
+            if (instance == null || m_Wrapper.m_CameraControlsActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_CameraControlsActionsCallbackInterfaces.Add(instance);
+            @Move.started += instance.OnMove;
+            @Move.performed += instance.OnMove;
+            @Move.canceled += instance.OnMove;
+            @MouseScrollWheel.started += instance.OnMouseScrollWheel;
+            @MouseScrollWheel.performed += instance.OnMouseScrollWheel;
+            @MouseScrollWheel.canceled += instance.OnMouseScrollWheel;
+            @Rotate.started += instance.OnRotate;
+            @Rotate.performed += instance.OnRotate;
+            @Rotate.canceled += instance.OnRotate;
+        }
+
+        private void UnregisterCallbacks(ICameraControlsActions instance)
+        {
+            @Move.started -= instance.OnMove;
+            @Move.performed -= instance.OnMove;
+            @Move.canceled -= instance.OnMove;
+            @MouseScrollWheel.started -= instance.OnMouseScrollWheel;
+            @MouseScrollWheel.performed -= instance.OnMouseScrollWheel;
+            @MouseScrollWheel.canceled -= instance.OnMouseScrollWheel;
+            @Rotate.started -= instance.OnRotate;
+            @Rotate.performed -= instance.OnRotate;
+            @Rotate.canceled -= instance.OnRotate;
+        }
+
+        public void RemoveCallbacks(ICameraControlsActions instance)
+        {
+            if (m_Wrapper.m_CameraControlsActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(ICameraControlsActions instance)
+        {
+            foreach (var item in m_Wrapper.m_CameraControlsActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_CameraControlsActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public CameraControlsActions @CameraControls => new CameraControlsActions(this);
 
     // Player
     private readonly InputActionMap m_Player;
@@ -1466,68 +1638,6 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         }
     }
     public UIActions @UI => new UIActions(this);
-
-    // CameraControls
-    private readonly InputActionMap m_CameraControls;
-    private List<ICameraControlsActions> m_CameraControlsActionsCallbackInterfaces = new List<ICameraControlsActions>();
-    private readonly InputAction m_CameraControls_MouseScrollWheel;
-    private readonly InputAction m_CameraControls_Rotate;
-    private readonly InputAction m_CameraControls_Move;
-    public struct CameraControlsActions
-    {
-        private @InputSystem_Actions m_Wrapper;
-        public CameraControlsActions(@InputSystem_Actions wrapper) { m_Wrapper = wrapper; }
-        public InputAction @MouseScrollWheel => m_Wrapper.m_CameraControls_MouseScrollWheel;
-        public InputAction @Rotate => m_Wrapper.m_CameraControls_Rotate;
-        public InputAction @Move => m_Wrapper.m_CameraControls_Move;
-        public InputActionMap Get() { return m_Wrapper.m_CameraControls; }
-        public void Enable() { Get().Enable(); }
-        public void Disable() { Get().Disable(); }
-        public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(CameraControlsActions set) { return set.Get(); }
-        public void AddCallbacks(ICameraControlsActions instance)
-        {
-            if (instance == null || m_Wrapper.m_CameraControlsActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_CameraControlsActionsCallbackInterfaces.Add(instance);
-            @MouseScrollWheel.started += instance.OnMouseScrollWheel;
-            @MouseScrollWheel.performed += instance.OnMouseScrollWheel;
-            @MouseScrollWheel.canceled += instance.OnMouseScrollWheel;
-            @Rotate.started += instance.OnRotate;
-            @Rotate.performed += instance.OnRotate;
-            @Rotate.canceled += instance.OnRotate;
-            @Move.started += instance.OnMove;
-            @Move.performed += instance.OnMove;
-            @Move.canceled += instance.OnMove;
-        }
-
-        private void UnregisterCallbacks(ICameraControlsActions instance)
-        {
-            @MouseScrollWheel.started -= instance.OnMouseScrollWheel;
-            @MouseScrollWheel.performed -= instance.OnMouseScrollWheel;
-            @MouseScrollWheel.canceled -= instance.OnMouseScrollWheel;
-            @Rotate.started -= instance.OnRotate;
-            @Rotate.performed -= instance.OnRotate;
-            @Rotate.canceled -= instance.OnRotate;
-            @Move.started -= instance.OnMove;
-            @Move.performed -= instance.OnMove;
-            @Move.canceled -= instance.OnMove;
-        }
-
-        public void RemoveCallbacks(ICameraControlsActions instance)
-        {
-            if (m_Wrapper.m_CameraControlsActionsCallbackInterfaces.Remove(instance))
-                UnregisterCallbacks(instance);
-        }
-
-        public void SetCallbacks(ICameraControlsActions instance)
-        {
-            foreach (var item in m_Wrapper.m_CameraControlsActionsCallbackInterfaces)
-                UnregisterCallbacks(item);
-            m_Wrapper.m_CameraControlsActionsCallbackInterfaces.Clear();
-            AddCallbacks(instance);
-        }
-    }
-    public CameraControlsActions @CameraControls => new CameraControlsActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     public InputControlScheme KeyboardMouseScheme
     {
@@ -1573,6 +1683,12 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             return asset.controlSchemes[m_XRSchemeIndex];
         }
     }
+    public interface ICameraControlsActions
+    {
+        void OnMove(InputAction.CallbackContext context);
+        void OnMouseScrollWheel(InputAction.CallbackContext context);
+        void OnRotate(InputAction.CallbackContext context);
+    }
     public interface IPlayerActions
     {
         void OnMove(InputAction.CallbackContext context);
@@ -1597,11 +1713,5 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         void OnScrollWheel(InputAction.CallbackContext context);
         void OnTrackedDevicePosition(InputAction.CallbackContext context);
         void OnTrackedDeviceOrientation(InputAction.CallbackContext context);
-    }
-    public interface ICameraControlsActions
-    {
-        void OnMouseScrollWheel(InputAction.CallbackContext context);
-        void OnRotate(InputAction.CallbackContext context);
-        void OnMove(InputAction.CallbackContext context);
     }
 }
