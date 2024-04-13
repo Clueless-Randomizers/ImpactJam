@@ -62,7 +62,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""id"": ""b0d24b62-1e06-41bb-a16f-a52d836690fb"",
                     ""path"": ""<Mouse>/scroll"",
                     ""interactions"": """",
-                    ""processors"": """",
+                    ""processors"": ""ScaleVector2(x=0.2,y=0.2)"",
                     ""groups"": "";Keyboard&Mouse"",
                     ""action"": ""MouseScrollWheel"",
                     ""isComposite"": false,
