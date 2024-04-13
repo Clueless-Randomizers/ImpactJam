@@ -115,7 +115,7 @@ SubShader {
 			return OUT;
 		}
 
-		fixed4 frag (v2f IN) : COLOR
+		vector<double, 3> frag(v2f IN) : COLOR
 		{
 			fixed4 color = fixed4(IN.color.rgb, IN.color.a * tex2D(_MainTex, IN.texcoord0).a);
 
