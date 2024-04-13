@@ -1,0 +1,17 @@
+
+ucsharpsquid:S3776Ç"RRefactor this method to reduce its Cognitive Complexity from 38 to the 15 allowed.(àÑùåûÿÿÿÿ
+pcsharpsquid:S3776®"RRefactor this method to reduce its Cognitive Complexity from 22 to the 15 allowed.(ìš½•
+„csharpsquid:S2234´"gParameters to 'TriangulateRoadEdge' have the same names but not the same order as the method arguments.(ËÆ.
+…csharpsquid:S2234¸"gParameters to 'TriangulateRoadEdge' have the same names but not the same order as the method arguments.(°Üî…
+csharpsquid:S2234Á"mParameters to 'TriangulateCornerTerraces' have the same names but not the same order as the method arguments.(ç›îìùÿÿÿÿ
+csharpsquid:S2234Ò"mParameters to 'TriangulateCornerTerraces' have the same names but not the same order as the method arguments.(ç›îìùÿÿÿÿ
+•csharpsquid:S2234ã"rParameters to 'TriangulateCornerCliffTerraces' have the same names but not the same order as the method arguments.(Ë…ã§úÿÿÿÿ
+csharpsquid:S2234ê"rParameters to 'TriangulateCornerTerracesCliff' have the same names but not the same order as the method arguments.(ÇÌ ì
+~csharpsquid:S2234‡	"[Parameters to 'AddQuad' have the same names but not the same order as the method arguments.(ÌÌíéşÿÿÿÿ
+bcsharpsquid:S107œ"@Method has 8 parameters, which is greater than the 7 authorized.(áˆÂœùÿÿÿÿ
+]csharpsquid:S107®"@Method has 9 parameters, which is greater than the 7 authorized.(—‘İó
+bcsharpsquid:S107¹"@Method has 9 parameters, which is greater than the 7 authorized.(™å…ıÿÿÿÿÿ
+]csharpsquid:S107Ş"@Method has 9 parameters, which is greater than the 7 authorized.(¦İÕØ
+]csharpsquid:S107Ä"@Method has 8 parameters, which is greater than the 7 authorized.(¡èÊÄ
+]csharpsquid:S107É"@Method has 9 parameters, which is greater than the 7 authorized.(¡èÊÄ
+bcsharpsquid:S107	"@Method has 9 parameters, which is greater than the 7 authorized.(ÿ– åüÿÿÿÿ
