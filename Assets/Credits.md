@@ -19,11 +19,6 @@ License: Non Standard EULA (Assets/Licenses/Odin Inspector End _User License Agr
 Link: https://assetstore.unity.com/packages/tools/utilities/odin-validator-227861
 Version: 3.2.1.0
 
-## Hex Map
-License: Non Standard EULA (Assets/Licenses/Catlike Coding Unity Tutorial License.pdf )
-Link: https://bitbucket.org/catlikecoding-projects/hex-map-project/src/master/
-Version: [3.3.0] - 2024-04-09
-
 ## Fantasy Wooden GUI : Free
 License: Standard Unity Asset Store EULA ( Assets/Licenses/Asset Store Terms of Service and EULA.pdf )
 Link: https://assetstore.unity.com/packages/2d/gui/fantasy-wooden-gui-free-103811

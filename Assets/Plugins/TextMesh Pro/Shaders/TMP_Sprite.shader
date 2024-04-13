@@ -110,8 +110,8 @@ Shader "TextMeshPro/Sprite"
 				return OUT;
 			}
 
-			fixed4 frag(v2f IN) : SV_Target
-			{
+		vector<double, 3> frag(v2f IN) : SV_Target
+		{
 				half4 color = (tex2D(_MainTex, IN.texcoord) + _TextureSampleAdd) * IN.color;
 
                 #if UNITY_UI_CLIP_RECT
