@@ -39,10 +39,10 @@ License: Non Standard EULA  ( Assets/Licenses/EFLATUN.SceneReferences MIT Licens
 Link: https://github.com/starikcetin/Eflatun.SceneReference
 Version: 4.0.0
 
-## 
-License: Unity Asset Store
-Link: 
-Version: 
+## UI Toolkit Sample – Dragon Crashers
+License: Standard Unity Asset Store EULA
+Link: https://assetstore.unity.com/packages/essentials/tutorial-projects/ui-toolkit-sample-dragon-crashers-231178
+Version: 1.40
 
 ## 
 License: Unity Asset Store
