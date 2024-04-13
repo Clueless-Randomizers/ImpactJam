@@ -28,5 +28,7 @@ public class GatheringBuilding : MonoBehaviour
 		};
 	}
 
+	public void AddCurrency (int currency) {
+		_buildingCurrency.Value = currency;
 	}
 }
