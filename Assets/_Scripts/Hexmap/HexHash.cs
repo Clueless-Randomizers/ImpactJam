@@ -1,24 +1,27 @@
 ﻿using UnityEngine;
 
-/// <summary>
-/// Five-component hash value.
-/// </summary>
-public struct HexHash
+namespace _Scripts.Hexmap
 {
-	public float a, b, c, d, e;
-
 	/// <summary>
-	/// Create a hex hash.
+	/// Five-component hash value.
 	/// </summary>
-	/// <returns>Hash value based on <see cref="UnityEngine.Random"/>.</returns>
-	public static HexHash Create()
+	public struct HexHash
 	{
-		HexHash hash;
-		hash.a = Random.value * 0.999f;
-		hash.b = Random.value * 0.999f;
-		hash.c = Random.value * 0.999f;
-		hash.d = Random.value * 0.999f;
-		hash.e = Random.value * 0.999f;
-		return hash;
+		public float A, B, C, D, E;
+
+		/// <summary>
+		/// Create a hex hash.
+		/// </summary>
+		/// <returns>Hash value based on <see cref="UnityEngine.Random"/>.</returns>
+		public static HexHash Create()
+		{
+			HexHash hash;
+			hash.A = Random.value * 0.999f;
+			hash.B = Random.value * 0.999f;
+			hash.C = Random.value * 0.999f;
+			hash.D = Random.value * 0.999f;
+			hash.E = Random.value * 0.999f;
+			return hash;
+		}
 	}
 }

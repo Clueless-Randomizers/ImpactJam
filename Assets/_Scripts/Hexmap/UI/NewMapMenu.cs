@@ -1,54 +1,55 @@
 ﻿using UnityEngine;
 
-/// <summary>
-/// Component that applies actions from the new map menu UI to the hex map.
-/// Public methods are hooked up to the in-game UI.
-/// </summary>
-public class NewMapMenu : MonoBehaviour
+namespace _Scripts.Hexmap.UI
 {
-	[SerializeField]
-	HexGrid hexGrid;
-
-	[SerializeField]
-	HexMapGenerator mapGenerator;
-
-	bool generateMaps = true;
-
-	bool wrapping = true;
-
-	public void ToggleMapGeneration(bool toggle) => generateMaps = toggle;
-
-	public void ToggleWrapping(bool toggle) => wrapping = toggle;
-
-	public void Open()
+	/// <summary>
+	/// Component that applies actions from the new map menu UI to the hex map.
+	/// Public methods are hooked up to the in-game UI.
+	/// </summary>
+	public class NewMapMenu : MonoBehaviour
 	{
-		gameObject.SetActive(true);
-		HexMapCamera.Locked = true;
-	}
+		[SerializeField] private HexGrid hexGrid;
 
-	public void Close()
-	{
-		gameObject.SetActive(false);
-		HexMapCamera.Locked = false;
-	}
+		[SerializeField] private HexMapGenerator mapGenerator;
 
-	public void CreateSmallMap() => CreateMap(20, 15);
+		private bool generateMaps = true;
 
-	public void CreateMediumMap() => CreateMap(40, 30);
+		private bool wrapping = true;
 
-	public void CreateLargeMap() => CreateMap(80, 60);
+		public void ToggleMapGeneration(bool toggle) => generateMaps = toggle;
 
-	void CreateMap(int x, int z)
-	{
-		if (generateMaps)
+		public void ToggleWrapping(bool toggle) => wrapping = toggle;
+
+		public void Open()
 		{
-			mapGenerator.GenerateMap(x, z, wrapping);
+			gameObject.SetActive(true);
+			HexMapCamera.Locked = true;
 		}
-		else
+
+		public void Close()
 		{
-			hexGrid.CreateMap(x, z, wrapping);
+			gameObject.SetActive(false);
+			HexMapCamera.Locked = false;
 		}
-		HexMapCamera.ValidatePosition();
-		Close();
+
+		public void CreateSmallMap() => CreateMap(20, 15);
+
+		public void CreateMediumMap() => CreateMap(40, 30);
+
+		public void CreateLargeMap() => CreateMap(80, 60);
+
+		private void CreateMap(int x, int z)
+		{
+			if (generateMaps)
+			{
+				mapGenerator.GenerateMap(x, z, wrapping);
+			}
+			else
+			{
+				hexGrid.CreateMap(x, z, wrapping);
+			}
+			HexMapCamera.ValidatePosition();
+			Close();
+		}
 	}
 }
