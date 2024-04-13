@@ -25,7 +25,6 @@ public class CurrencyManager : MonoBehaviour
 				currencyDisplayController.SetCurrency( _instantiatedCurrency );
 			}
 		}
-		Debug.Log(GameManager.CurrencyManager.GetCurrency("Food"));
 	}
 
 	public SO_Currency GetCurrency (string name) {
