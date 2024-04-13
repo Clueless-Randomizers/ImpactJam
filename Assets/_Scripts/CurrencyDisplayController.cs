@@ -12,8 +12,9 @@ public class CurrencyDisplayManager : MonoBehaviour
 	public void SetCurrency( SO_Currency currency) {
 		_currency = currency;
 		_currency.CurrencyChange.AddListener(UpdateCurrencyText);
+
 		_currencyValueElement.text = $"{_currency.Value}";
-		_currencyNameElement.text = $"{_currency.name.Split( "(" )[0]}";
+		_currencyNameElement.text = $"{_currency.PresentableName}";
 		_currencySpriteElement.sprite = _currency.Icon;
 	}
 
