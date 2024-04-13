@@ -1,12 +1,5 @@
 fileFormatVersion: 2
-guid: efee20b64d1e73942a29ba61ce3379c3
-AssetOrigin:
-  serializedVersion: 1
-  productId: 103811
-  packageName: 'Fantasy Wooden GUI : Free'
-  packageVersion: 2.0
-  assetPath: Assets/Fantasy Wooden GUI  Free/normal_ui_set A/TextBTN_Medium.png
-  uploadId: 294936
+guid: 17af60f2030cf244f8cdea27d290d06a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -46,7 +39,7 @@ TextureImporter:
     mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: 1
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -70,9 +63,9 @@ TextureImporter:
   compressionQualitySet: 0
   textureFormatSet: 0
   ignorePngGamma: 0
-  applyGammaDecoding: 1
+  applyGammaDecoding: 0
   swizzle: 50462976
-  cookieLightType: 1
+  cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
