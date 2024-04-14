@@ -1235,7 +1235,7 @@ PrefabInstance:
     - target: {fileID: 424582640928465779, guid: 401aa0888d43f2a44be5b3cfa542d968,
         type: 3}
       propertyPath: m_Name
-      value: Tent
+      value: L1_Town_Hall_Tent
       objectReference: {fileID: 0}
     - target: {fileID: 6138374399230450542, guid: 401aa0888d43f2a44be5b3cfa542d968,
         type: 3}
