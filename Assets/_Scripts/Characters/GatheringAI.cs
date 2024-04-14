@@ -1,12 +1,20 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 [RequireComponent( typeof( NavMeshAgent ) )]
 public class GatheringAI : MonoBehaviour
 {
-	[SerializeField] GatheringBuilding _gatheringBuilding = default;
+	[SerializeField] private GatheringBuilding _gatheringBuilding = default;
 	[SerializeField] private int _maxFoundResources = 5;
-	[SerializeField] private static float _mapSize = 400f;
+	[SerializeField] NavMeshAgent _agent = default;
+	[Header("Hat Configuration")]
+	[SerializeField] private Renderer[] _hatRenderers;
+	[SerializeField] private Material _hatMaterial;
+	[Header( "References" )]
+	[SerializeField] private TMP_Text _resourceCounter;
+	[SerializeField] private Image _resourceImage;
 
 	float _nextGatheringRun = 0f;
 	float _gatheringTimeout = 20f;
@@ -18,7 +26,6 @@ public class GatheringAI : MonoBehaviour
 	
 	int _carryingResources = 0;
 
-	[SerializeField] NavMeshAgent _agent = default;
 
 	private void Start () {
 		if ( _agent == default ) {
@@ -58,6 +65,7 @@ public class GatheringAI : MonoBehaviour
 			_hasResources = true;
 			_isGathering = false;
 			_carryingResources = ( int ) 1 * Random.Range( 1 , _maxFoundResources );
+			_resourceCounter.text = $"{_carryingResources}";
 		}
 	}
 
@@ -76,8 +84,13 @@ public class GatheringAI : MonoBehaviour
 	/// </summary>
 	private void StartGathering () {
 		_isGathering = true;
+
+		_resourceImage.sprite = _gatheringBuilding.GetCurrency.Icon;
+		_resourceImage.enabled = true;
+
 		float _generatedTimeOut = GetNextTime( _timeSpentGathering, 1.5f );
 		_nextReturnTime = _generatedTimeOut;
+		
 		Debug.Log($"Next Return time: {_generatedTimeOut - Time.realtimeSinceStartup}s from now.");
 		Vector3 _randomPosition = GetRandomPosition();
 		
@@ -89,13 +102,32 @@ public class GatheringAI : MonoBehaviour
 	/// </summary>
 	/// <param name="gatheringBuilding"></param>
 	public void SetGatheringBuilding(GatheringBuilding gatheringBuilding) {
+		// If gatheringBuilding is default, reset unit's gathering building to nothing.
+		if ( gatheringBuilding == default) {
+			_gatheringBuilding = default;
+			_gatheringTimeout = default;
+			_timeSpentGathering = default;
+			foreach ( Renderer hatPart in _hatRenderers ) {
+				hatPart.material = _hatMaterial;
+			}
+			_resourceImage.enabled = false;
+			return;
+		}
+		// If gatheringbuilding is not default and we added this unit's GatheringAI-script to the gathering-building...
 		if ( gatheringBuilding.AddGatheringPerson( this ) ) {
 			_gatheringBuilding = gatheringBuilding;
 
-			_gatheringTimeout = _gatheringBuilding.GatheringTime;
+			_gatheringTimeout = _gatheringBuilding.WorkerRestTime;
 
 			// Divided by 2 to make the variable account for the whole time the character is spending gathering.
-			_timeSpentGathering = _gatheringBuilding.TimeSpentGathering / 2; 
+			_timeSpentGathering = _gatheringBuilding.TimeSpentGathering / 2;
+
+			Material gatheringBuildingHatMaterial = _gatheringBuilding.GetHatMaterial();
+			if ( gatheringBuildingHatMaterial != default) { 
+				foreach ( Renderer hatPart in _hatRenderers ) {
+					hatPart.material = gatheringBuildingHatMaterial;
+				}
+			}
 		}
 	}
 	/// <summary>
@@ -110,6 +142,10 @@ public class GatheringAI : MonoBehaviour
 
 	// GetRandomPosition Author: Clamum; Source: https://forum.unity.com/threads/generating-a-random-position-on-navmesh.873364/#post-5796748
 	// Modified by Tor-Arne Sandstrak to recursively find something outside _gatheringBuilding's range of influence
+	/// <summary>
+	/// Gets a random position on the navmesh, returns a Vector3.
+	/// </summary>
+	/// <returns></returns>
 	private Vector3 GetRandomPosition () {
 		NavMeshTriangulation navMeshData = NavMesh.CalculateTriangulation();
 
@@ -170,6 +206,7 @@ public class GatheringAI : MonoBehaviour
 		_agent.isStopped = true;
 
 		_hasResources = false;
+		_resourceCounter.text = "";
 		_nextGatheringRun = GetNextTime( _gatheringTimeout, 1.75f );
 	}
 }
