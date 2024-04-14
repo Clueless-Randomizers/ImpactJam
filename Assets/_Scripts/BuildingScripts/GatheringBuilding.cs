@@ -7,6 +7,7 @@ public class GatheringBuilding : MonoBehaviour
 	[SerializeField] private float _timeSpentGathering;
 	[SerializeField] private SO_Currency _buildingCurrency;
 	[SerializeField] private int _maxGatheringPeople = 5;
+	[SerializeField] private Material _gathererHatMaterial;
 	List<GatheringAI> _gatheringPeople = new();
 
 	private void Start () {
