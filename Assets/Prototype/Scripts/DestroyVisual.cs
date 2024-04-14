@@ -1,20 +1,21 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class DestroyVisual : MonoBehaviour
+namespace Prototype.Scripts
 {
-    Damageable damageable;
-    public GameObject destroyParticle;
-    void Start()
+    public class DestroyVisual : MonoBehaviour
     {
-        damageable = GetComponent<Damageable>();
-        damageable.onDestroy.AddListener(Destroy);
-    }
+        Damageable damageable;
+        public GameObject destroyParticle;
+        void Start()
+        {
+            damageable = GetComponent<Damageable>();
+            damageable.onDestroy.AddListener(Destroy);
+        }
 
-    public void Destroy()
-    {
-        if(Application.isPlaying)
-            Instantiate(destroyParticle, transform.position + Vector3.up, Quaternion.identity);
+        public void Destroy()
+        {
+            if(Application.isPlaying)
+                Instantiate(destroyParticle, transform.position + Vector3.up, Quaternion.identity);
+        }
     }
 }

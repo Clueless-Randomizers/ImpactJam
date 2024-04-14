@@ -1,75 +1,76 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
-public class BuildingUI : MonoBehaviour
+namespace Prototype.Scripts
 {
-    CanvasGroup canvasGroup;
-    bool isPlacing = false;
-    int currentIndex = 0;
-
-    public Transform resourceGroup;
-
-    Mesh buildingPreviewMesh;
-    [SerializeField] Material buildingPreviewMat;
-    private void Awake()
+    public class BuildingUI : MonoBehaviour
     {
-        canvasGroup = GetComponent<CanvasGroup>();
-    }
-    void Start()
-    {
-        Button[] buttons = GetComponentsInChildren<Button>();
-        for (int i = 0; i < buttons.Length; i++)
+        CanvasGroup canvasGroup;
+        bool isPlacing = false;
+        int currentIndex = 0;
+
+        public Transform resourceGroup;
+
+        Mesh buildingPreviewMesh;
+        [SerializeField] Material buildingPreviewMat;
+        private void Awake()
         {
-            int index = i;
-            buttons[index].onClick.AddListener(() => SelectBuilding(index));
-
-            Building b = BuildingManager.instance.buildingPrefabs[index];
-            buttons[index].GetComponentInChildren<TextMeshProUGUI>().text = GetButtonText(b);
+            canvasGroup = GetComponent<CanvasGroup>();
         }
-    }
-
-    private void Update()
-    {
-        if (isPlacing)
+        void Start()
         {
-            Vector3 position = Utility.MouseToTerrainPosition();
-            Graphics.DrawMesh(buildingPreviewMesh, position, Quaternion.identity, buildingPreviewMat, 0);
-            if (Input.GetMouseButtonDown(0))
+            Button[] buttons = GetComponentsInChildren<Button>();
+            for (int i = 0; i < buttons.Length; i++)
             {
-                BuildingManager.instance.SpawnBuilding(currentIndex, position);
-                canvasGroup.alpha = 1;
-                isPlacing = false;
+                int index = i;
+                buttons[index].onClick.AddListener(() => SelectBuilding(index));
+
+                Building b = BuildingManager.instance.buildingPrefabs[index];
+                buttons[index].GetComponentInChildren<TextMeshProUGUI>().text = GetButtonText(b);
             }
         }
-    }
 
-    void SelectBuilding(int index)
-    {
-        currentIndex = index;
-        ActorManager.instance.DeselectActors();
-        canvasGroup.alpha = 0;
-        isPlacing = true;
-        buildingPreviewMesh = BuildingManager.instance.GetPrefab(index).GetComponentInChildren<MeshFilter>().sharedMesh;
-    }
+        private void Update()
+        {
+            if (isPlacing)
+            {
+                Vector3 position = Utility.MouseToTerrainPosition();
+                Graphics.DrawMesh(buildingPreviewMesh, position, Quaternion.identity, buildingPreviewMat, 0);
+                if (Input.GetMouseButtonDown(0))
+                {
+                    BuildingManager.instance.SpawnBuilding(currentIndex, position);
+                    canvasGroup.alpha = 1;
+                    isPlacing = false;
+                }
+            }
+        }
 
-    string GetButtonText(Building b)
-    {
-        string buildingName = b.buildingName;
-        int resourceAmount = b.resourceCost.Length;
-        string[] resourceNames = new string[] { "Wood", "Stone" };
-        string resourceString = string.Empty;
-        for (int j = 0; j < resourceAmount; j++)
-            resourceString += "\n " + resourceNames[j] + " (" + b.resourceCost[j] + ")";
+        void SelectBuilding(int index)
+        {
+            currentIndex = index;
+            ActorManager.instance.DeselectActors();
+            canvasGroup.alpha = 0;
+            isPlacing = true;
+            buildingPreviewMesh = BuildingManager.instance.GetPrefab(index).GetComponentInChildren<MeshFilter>().sharedMesh;
+        }
 
-        return "<size=23><b>" + buildingName + "</b></size>" + resourceString;
-    }
+        string GetButtonText(Building b)
+        {
+            string buildingName = b.buildingName;
+            int resourceAmount = b.resourceCost.Length;
+            string[] resourceNames = new string[] { "Wood", "Stone" };
+            string resourceString = string.Empty;
+            for (int j = 0; j < resourceAmount; j++)
+                resourceString += "\n " + resourceNames[j] + " (" + b.resourceCost[j] + ")";
 
-    public void RefreshResources()
-    {
-        for (int i = 0; i < resourceGroup.childCount; i++)
-            resourceGroup.GetChild(i).GetComponentInChildren<TextMeshProUGUI>().text = BuildingManager.instance.currentResources[i].ToString();
+            return "<size=23><b>" + buildingName + "</b></size>" + resourceString;
+        }
+
+        public void RefreshResources()
+        {
+            for (int i = 0; i < resourceGroup.childCount; i++)
+                resourceGroup.GetChild(i).GetComponentInChildren<TextMeshProUGUI>().text = BuildingManager.instance.currentResources[i].ToString();
+        }
     }
 }

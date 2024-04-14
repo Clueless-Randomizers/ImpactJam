@@ -1,17 +1,18 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 //[ExecuteInEditMode]
-public class AutoRotate : MonoBehaviour
+namespace Art.Polygon_Mega_Survival_Forest.Forest.FoliageShader
 {
-    // Start is called before the first frame update
-    public float speed = 1f;
-    // Update is called once per frame
-    void Update()
+    public class AutoRotate : MonoBehaviour
     {
-        var rot = transform.localEulerAngles;
-        rot.y += Time.deltaTime * speed;
-        transform.localEulerAngles = rot;
+        // Start is called before the first frame update
+        public float speed = 1f;
+        // Update is called once per frame
+        void Update()
+        {
+            var rot = transform.localEulerAngles;
+            rot.y += Time.deltaTime * speed;
+            transform.localEulerAngles = rot;
+        }
     }
 }

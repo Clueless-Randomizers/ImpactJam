@@ -1,0 +1,52 @@
+{
+  "GlobalObjectId_V1-2-a7e81c0aeab9ce141a467a425470b23c-1134151728-0": {
+    "GameObjectId": "GlobalObjectId_V1-2-a7e81c0aeab9ce141a467a425470b23c-1134151728-0",
+    "SectionColorRed": 0.0,
+    "SectionColorGreen": 0.77,
+    "SectionColorBlue": 0.77,
+    "SectionAltColorRed": 0.0,
+    "SectionAltColorGreen": 0.77,
+    "SectionAltColorBlue": 0.77,
+    "RemoveSectionDuringBuild": false
+  },
+  "GlobalObjectId_V1-2-a7e81c0aeab9ce141a467a425470b23c-4392008047849511780-0": {
+    "GameObjectId": "GlobalObjectId_V1-2-a7e81c0aeab9ce141a467a425470b23c-4392008047849511780-0",
+    "SectionColorRed": 0.35,
+    "SectionColorGreen": 0.35,
+    "SectionColorBlue": 0.77,
+    "SectionAltColorRed": 0.35,
+    "SectionAltColorGreen": 0.35,
+    "SectionAltColorBlue": 0.77,
+    "RemoveSectionDuringBuild": false
+  },
+  "GlobalObjectId_V1-2-a7e81c0aeab9ce141a467a425470b23c-4505912795788047824-0": {
+    "GameObjectId": "GlobalObjectId_V1-2-a7e81c0aeab9ce141a467a425470b23c-4505912795788047824-0",
+    "SectionColorRed": 0.77,
+    "SectionColorGreen": 0.35,
+    "SectionColorBlue": 0.35,
+    "SectionAltColorRed": 0.77,
+    "SectionAltColorGreen": 0.35,
+    "SectionAltColorBlue": 0.35,
+    "RemoveSectionDuringBuild": false
+  },
+  "GlobalObjectId_V1-2-a7e81c0aeab9ce141a467a425470b23c-60113786-0": {
+    "GameObjectId": "GlobalObjectId_V1-2-a7e81c0aeab9ce141a467a425470b23c-60113786-0",
+    "SectionColorRed": 0.35,
+    "SectionColorGreen": 0.77,
+    "SectionColorBlue": 0.35,
+    "SectionAltColorRed": 0.35,
+    "SectionAltColorGreen": 0.77,
+    "SectionAltColorBlue": 0.35,
+    "RemoveSectionDuringBuild": false
+  },
+  "GlobalObjectId_V1-2-a7e81c0aeab9ce141a467a425470b23c-895365714-0": {
+    "GameObjectId": "GlobalObjectId_V1-2-a7e81c0aeab9ce141a467a425470b23c-895365714-0",
+    "SectionColorRed": 0.35,
+    "SectionColorGreen": 0.77,
+    "SectionColorBlue": 0.35,
+    "SectionAltColorRed": 0.35,
+    "SectionAltColorGreen": 0.77,
+    "SectionAltColorBlue": 0.35,
+    "RemoveSectionDuringBuild": false
+  }
+}

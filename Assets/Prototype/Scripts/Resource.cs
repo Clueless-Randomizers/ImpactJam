@@ -1,52 +1,53 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using DG.Tweening;
 using UnityEngine;
-using DG.Tweening;
 
-public class Resource : MonoBehaviour
+namespace Prototype.Scripts
 {
-    [SerializeField] ResourceType resourceType;
-    [SerializeField] int amount;
-    Damageable damageable;
-    public bool isHover;
-
-    //HoverVisual
-    private Renderer renderer;
-    private Color emissionColor;
-
-    void Awake()
+    public class Resource : MonoBehaviour
     {
-        damageable = GetComponent<Damageable>();
-        damageable.onDestroy.AddListener(GiveResource);
-        damageable.onHit.AddListener(HitResource);
+        [SerializeField] ResourceType resourceType;
+        [SerializeField] int amount;
+        Damageable damageable;
+        public bool isHover;
 
-        renderer = GetComponent<Renderer>();
-        if (renderer)
-            emissionColor = renderer.material.GetColor("_EmissionColor");
-    }
+        //HoverVisual
+        private Renderer renderer;
+        private Color emissionColor;
 
-    void GiveResource()
-    {
-        BuildingManager.instance.AddResource(resourceType, amount);
-    }
+        void Awake()
+        {
+            damageable = GetComponent<Damageable>();
+            damageable.onDestroy.AddListener(GiveResource);
+            damageable.onHit.AddListener(HitResource);
 
-    void HitResource()
-    {
-        //visual
-        transform.DOComplete();
-        transform.DOShakeScale(.5f, .2f, 10, 90, true);
-    }
+            renderer = GetComponent<Renderer>();
+            if (renderer)
+                emissionColor = renderer.material.GetColor("_EmissionColor");
+        }
 
-    private void OnMouseEnter()
-    {
-        isHover = true;
-        if (renderer)
-            renderer.material.SetColor("_EmissionColor", Color.grey);
-    }
-    private void OnMouseExit()
-    {
-        isHover = false;
-        if (renderer)
-            renderer.material.SetColor("_EmissionColor", emissionColor);
+        void GiveResource()
+        {
+            BuildingManager.instance.AddResource(resourceType, amount);
+        }
+
+        void HitResource()
+        {
+            //visual
+            transform.DOComplete();
+            transform.DOShakeScale(.5f, .2f, 10, 90, true);
+        }
+
+        private void OnMouseEnter()
+        {
+            isHover = true;
+            if (renderer)
+                renderer.material.SetColor("_EmissionColor", Color.grey);
+        }
+        private void OnMouseExit()
+        {
+            isHover = false;
+            if (renderer)
+                renderer.material.SetColor("_EmissionColor", emissionColor);
+        }
     }
 }

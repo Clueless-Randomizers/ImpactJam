@@ -1,22 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
 using Eflatun.SceneReference;
 using TMPro;
 using UnityEngine;
 
-public class LevelMenuInformation : MonoBehaviour
+namespace _Scripts.MainMenu
 {
-    [SerializeField] private SceneReference level;
-    [SerializeField] private TMP_Text levelNameText;
-    [SerializeField] private MainMenuManager mainMenuManager;
-    
-    void Start()
+    public class LevelMenuInformation : MonoBehaviour
     {
-        levelNameText.text = level.Name;
-    }
+        [SerializeField] private SceneReference level;
+        [SerializeField] private TMP_Text levelNameText;
+        [SerializeField] private MainMenuManager mainMenuManager;
     
-    public void StartGame()
-    {
-        mainMenuManager.StartGame(level);
+        void Start()
+        {
+            levelNameText.text = level.Name;
+        }
+    
+        public void StartGame()
+        {
+            mainMenuManager.StartGame(level);
+        }
     }
 }

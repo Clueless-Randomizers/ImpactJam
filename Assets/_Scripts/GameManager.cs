@@ -1,4 +1,7 @@
-public static class GameManager 
+namespace _Scripts
 {
-	static public CurrencyManager CurrencyManager;
+	public static class GameManager 
+	{
+		static public CurrencyManager CurrencyManager;
+	}
 }

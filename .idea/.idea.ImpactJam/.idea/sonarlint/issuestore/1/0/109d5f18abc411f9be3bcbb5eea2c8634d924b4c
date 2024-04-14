@@ -1,0 +1,6 @@
+
+\csharpsquid:S1854‚"9Remove this useless assignment to local variable 'point'.(§Ù„®ûÿÿÿÿ
+Hcsharpsquid:S1905<"&Remove this unnecessary cast to 'int'.(Þ„™Åÿÿÿÿÿ
+@csharpsquid:S125S"Remove this commented out code.(Œ¡áùÿÿÿÿ
+@csharpsquid:S125Z"Remove this commented out code.(‰èóûÿÿÿÿ
+<csharpsquid:S125µ"Remove this commented out code.(û°ˆö
