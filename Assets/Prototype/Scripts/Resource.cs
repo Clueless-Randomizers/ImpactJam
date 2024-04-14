@@ -11,7 +11,7 @@ namespace Prototype.Scripts
         public bool isHover;
 
         //HoverVisual
-        private Renderer renderer;
+        private Renderer myRenderer;
         private Color emissionColor;
 
         void Awake()
@@ -20,9 +20,9 @@ namespace Prototype.Scripts
             damageable.onDestroy.AddListener(GiveResource);
             damageable.onHit.AddListener(HitResource);
 
-            renderer = GetComponent<Renderer>();
-            if (renderer)
-                emissionColor = renderer.material.GetColor("_EmissionColor");
+            myRenderer = GetComponent<Renderer>();
+            if (myRenderer)
+                emissionColor = myRenderer.material.GetColor("_EmissionColor");
         }
 
         void GiveResource()
@@ -40,14 +40,14 @@ namespace Prototype.Scripts
         private void OnMouseEnter()
         {
             isHover = true;
-            if (renderer)
-                renderer.material.SetColor("_EmissionColor", Color.grey);
+            if (myRenderer)
+                myRenderer.material.SetColor("_EmissionColor", Color.grey);
         }
         private void OnMouseExit()
         {
             isHover = false;
-            if (renderer)
-                renderer.material.SetColor("_EmissionColor", emissionColor);
+            if (myRenderer)
+                myRenderer.material.SetColor("_EmissionColor", emissionColor);
         }
     }
 }

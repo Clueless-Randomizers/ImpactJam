@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using _Scripts;
+using _Scripts.ScriptableObjects;
 using UnityEngine;
 
 public class GatheringBuilding : MonoBehaviour

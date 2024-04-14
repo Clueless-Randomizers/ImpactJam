@@ -22,7 +22,7 @@ namespace _Scripts.RefactoredSampleScripts
         private void Start()
         {
             currentResources = new int[] { 0, 0 };
-            ui = FindObjectOfType<BuildingUI>();
+            ui = FindFirstObjectByType<BuildingUI>();
             if (ui)
                 ui.RefreshResources();
         }
