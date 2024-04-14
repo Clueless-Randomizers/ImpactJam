@@ -119,6 +119,9 @@ public class GatheringAI : MonoBehaviour
 		}
 		// If gatheringbuilding is not default and we added this unit's GatheringAI-script to the gathering-building...
 		if ( gatheringBuilding.AddGatheringPerson( this ) ) {
+			if (_gatheringBuilding != gatheringBuilding && _gatheringBuilding != default) {
+				_gatheringBuilding.RemoveGatheringPerson( this );
+			}
 			_gatheringBuilding = gatheringBuilding;
 
 			_gatheringTimeout = _gatheringBuilding.WorkerRestTime;

@@ -26,12 +26,6 @@ public class SelectingObjectScript : MonoBehaviour
                 if (hit.collider.gameObject.TryGetComponent(out GatheringAI ai))
                 {
                     _selectedGatheringAI = ai;
-                    // Check if the AI is already assigned to a building
-                    /*if (ai.GetGatheringBuilding() != null)
-                    {
-                        // Remove the AI from the building
-                        ai.GetGatheringBuilding().RemoveGatheringPerson(ai);
-                    }*/
                 }
                 // Check if the object hit is a gathering building
                 else if (hit.collider.gameObject.TryGetComponent(out GatheringBuilding building) && _selectedGatheringAI != null)
