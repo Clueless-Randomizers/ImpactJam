@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace _Scripts.RefactoredSampleScripts
+namespace _Scripts.RefactoredSampleScripts.Agent
 {
     public class ActorManager : MonoBehaviour
     {

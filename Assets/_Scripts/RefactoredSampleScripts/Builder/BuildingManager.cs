@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
+using _Scripts.RefactoredSampleScripts.Agent;
 using UnityEngine;
 
-namespace _Scripts.RefactoredSampleScripts
+namespace _Scripts.RefactoredSampleScripts.Builder
 {
     public enum ResourceType { Wood, Stone }
     public class BuildingManager : MonoBehaviour

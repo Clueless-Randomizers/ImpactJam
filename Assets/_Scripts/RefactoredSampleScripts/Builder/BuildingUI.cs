@@ -1,8 +1,9 @@
-﻿using TMPro;
+﻿using _Scripts.RefactoredSampleScripts.Agent;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace _Scripts.RefactoredSampleScripts
+namespace _Scripts.RefactoredSampleScripts.Builder
 {
     public class BuildingUI : MonoBehaviour
     {
