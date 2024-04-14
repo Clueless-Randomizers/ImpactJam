@@ -1,4 +1,5 @@
 ﻿using _Scripts.RefactoredSampleScripts.Builder;
+using _Scripts.ScriptableObjects;
 using DG.Tweening;
 using UnityEngine;
 
@@ -28,7 +29,10 @@ namespace _Scripts.RefactoredSampleScripts
 
         void GiveResource()
         {
-            BuildingManager.instance.AddResource(resourceType, amount);
+            SO_Currency newResource = ScriptableObject.CreateInstance<SO_Currency>();
+            newResource.name = resourceType.ToString(); 
+            newResource.Value = amount; 
+            BuildingManager.instance.AddResource(newResource);
         }
 
         void HitResource()

@@ -1,4 +1,7 @@
-﻿using DG.Tweening;
+﻿using System.Collections.Generic;
+using System.Linq;
+using _Scripts.ScriptableObjects;
+using DG.Tweening;
 using UnityEngine;
 
 namespace _Scripts.RefactoredSampleScripts.Builder
@@ -6,6 +9,9 @@ namespace _Scripts.RefactoredSampleScripts.Builder
     [RequireComponent(typeof(Damageable))]
     public class Building : MonoBehaviour
     {
+        [SerializeField]
+        private List<SO_Currency> buildingCosts; // This will hold the cost of resources for building
+        
         public string buildingName;
         [SerializeField] float height;
         public float radius = 5;
@@ -21,10 +27,15 @@ namespace _Scripts.RefactoredSampleScripts.Builder
         [SerializeField] private Color[] stateColors;
         MeshRenderer buildingRender;
         Cinemachine.CinemachineImpulseSource impulse;
+        private Tween buildingTween;
 
         private void Awake()
         {
             attackable = GetComponent<Damageable>();
+        }
+        public List<SO_Currency> GetBuildingCosts()
+        {
+            return buildingCosts;
         }
 
         void Start()
@@ -35,12 +46,15 @@ namespace _Scripts.RefactoredSampleScripts.Builder
             currentWork = 0;
             originalHeight = buildingTransform.localPosition.y;
             buildingTransform.localPosition = Vector3.down * height;
+            buildingTween = buildingTransform.DOLocalMoveY(originalHeight, (float)totalWorkToComplete / totalWorkToComplete).From().SetEase(Ease.OutBack).SetAutoKill(false).Pause();
+
         }
         public void Build(int work)
         {
             currentWork += work;
             buildingTransform.localPosition = Vector3.Lerp(Vector3.down * height, new Vector3(0,originalHeight,0), (float)currentWork / totalWorkToComplete);
 
+            buildingTween.Play();
             //visual
             buildingTransform.DOComplete();
             buildingTransform.DOShakeScale(.5f, .2f, 10, 90, true);
@@ -57,18 +71,26 @@ namespace _Scripts.RefactoredSampleScripts.Builder
             }
             return currentWork >= totalWorkToComplete;
         }
-        public bool CanBuild(int[] resources)
+        public bool CanBuild(List<SO_Currency> resources)
         {
-            bool canBuild = true;
-            for (int i = 0; i < resourceCost.Length; i++)
+            if (resources.Count >= resourceCost.Length)
             {
-                if (resources[i] < resourceCost[i])
+                for (int i = 0; i < resourceCost.Length; i++)
                 {
-                    canBuild = false;
-                    break;
+                    if (resources[i].Value < resourceCost[i])
+                    {
+                        Debug.Log($"Not enough of resource {i}: have {resources[i].Value}, need {resourceCost[i]}");
+                        return false;
+                    }
                 }
+                return true;
             }
-            return canBuild;
+            else
+            {
+                // Handle the case where resources has fewer elements than resourceCost
+                Debug.Log("Not enough types of resources");
+                return false;
+            }
         }
         public int[] Cost()
         {

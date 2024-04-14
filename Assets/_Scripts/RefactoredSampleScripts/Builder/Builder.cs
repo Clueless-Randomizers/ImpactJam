@@ -9,7 +9,7 @@ namespace _Scripts.RefactoredSampleScripts.Builder
         Building currentBuilding;
         private void Start()
         {
-            animationEvent.attackEvent.AddListener(DoWork);
+//            animationEvent.attackEvent.AddListener(DoWork);
         }
         public void GiveJob(Building job)
         {

@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &9162713093610542880
 Transform:
   m_ObjectHideFlags: 0
@@ -118,6 +118,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1266286765079428757}
   - {fileID: 9162713093610542880}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -133,7 +134,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdf14a74c2970d04db77fc102acdcfbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingName: Well
+  buildingCosts:
+  - {fileID: 11400000, guid: 5712aa6662da1d546b6192cf5688643b, type: 2}
+  buildingName: Tent
   height: 3.21
   radius: 2
   totalWorkToComplete: 100
@@ -232,3 +235,97 @@ MonoBehaviour:
       m_Calls: []
   totalHealth: 100
   currentHealth: 0
+--- !u!1001 &1288141751555596377
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 8050848382830455843}
+    m_Modifications:
+    - target: {fileID: 32271781649997516, guid: 5bf9fb806a1d76e4bbd38070c30c5abe,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 5.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 32271781649997516, guid: 5bf9fb806a1d76e4bbd38070c30c5abe,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 32271781649997516, guid: 5bf9fb806a1d76e4bbd38070c30c5abe,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 5.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 32271781649997516, guid: 5bf9fb806a1d76e4bbd38070c30c5abe,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 32271781649997516, guid: 5bf9fb806a1d76e4bbd38070c30c5abe,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 32271781649997516, guid: 5bf9fb806a1d76e4bbd38070c30c5abe,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 32271781649997516, guid: 5bf9fb806a1d76e4bbd38070c30c5abe,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: 32271781649997516, guid: 5bf9fb806a1d76e4bbd38070c30c5abe,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 32271781649997516, guid: 5bf9fb806a1d76e4bbd38070c30c5abe,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 32271781649997516, guid: 5bf9fb806a1d76e4bbd38070c30c5abe,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 32271781649997516, guid: 5bf9fb806a1d76e4bbd38070c30c5abe,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 32271781649997516, guid: 5bf9fb806a1d76e4bbd38070c30c5abe,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 32271781649997516, guid: 5bf9fb806a1d76e4bbd38070c30c5abe,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 32271781649997516, guid: 5bf9fb806a1d76e4bbd38070c30c5abe,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 808809202317526134, guid: 5bf9fb806a1d76e4bbd38070c30c5abe,
+        type: 3}
+      propertyPath: m_Name
+      value: Tent_01
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5bf9fb806a1d76e4bbd38070c30c5abe, type: 3}
+--- !u!4 &1266286765079428757 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 32271781649997516, guid: 5bf9fb806a1d76e4bbd38070c30c5abe,
+    type: 3}
+  m_PrefabInstance: {fileID: 1288141751555596377}
+  m_PrefabAsset: {fileID: 0}

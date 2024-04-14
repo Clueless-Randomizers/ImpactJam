@@ -1,4 +1,5 @@
-﻿using _Scripts.RefactoredSampleScripts.Agent;
+﻿using System;
+using _Scripts.RefactoredSampleScripts.Agent;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,9 +11,7 @@ namespace _Scripts.RefactoredSampleScripts.Builder
         CanvasGroup canvasGroup;
         bool isPlacing = false;
         int currentIndex = 0;
-
-        public Transform resourceGroup;
-
+        
         Mesh buildingPreviewMesh;
         [SerializeField] Material buildingPreviewMat;
         private void Awake()
@@ -60,18 +59,12 @@ namespace _Scripts.RefactoredSampleScripts.Builder
         {
             string buildingName = b.buildingName;
             int resourceAmount = b.resourceCost.Length;
-            string[] resourceNames = new string[] { "Wood", "Stone" };
+            string[] resourceNames = new string[] { "Wood"};
             string resourceString = string.Empty;
             for (int j = 0; j < resourceAmount; j++)
                 resourceString += "\n " + resourceNames[j] + " (" + b.resourceCost[j] + ")";
 
             return "<size=23><b>" + buildingName + "</b></size>" + resourceString;
-        }
-
-        public void RefreshResources()
-        {
-            for (int i = 0; i < resourceGroup.childCount; i++)
-                resourceGroup.GetChild(i).GetComponentInChildren<TextMeshProUGUI>().text = BuildingManager.instance.currentResources[i].ToString();
         }
     }
 }

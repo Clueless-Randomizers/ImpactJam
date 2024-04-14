@@ -14,4 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _currentCurrency: 0
   _currencyImage: {fileID: 21300000, guid: 1618cb37bcd5144fd923b9697be57d63, type: 3}
-  _currencyType: 0
+  CurrencyChange:
+    m_PersistentCalls:
+      m_Calls: []

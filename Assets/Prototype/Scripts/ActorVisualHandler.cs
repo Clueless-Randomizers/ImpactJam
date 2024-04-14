@@ -12,7 +12,7 @@ namespace Prototype.Scripts
         private void Start()
         {
             actor = GetComponent<Actor>();
-            actor.animationEvent.attackEvent.AddListener(Attack);
+            //actor.animationEvent.attackEvent.AddListener(Attack);
         }
         public void Select()
         {

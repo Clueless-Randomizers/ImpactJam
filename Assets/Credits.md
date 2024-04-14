@@ -52,4 +52,8 @@ Usage in Ideation phase:
 - ChatGPT 4 was asked for tips regarding what we should focus on to reach our 48 hour deadline.
 - ChatGPT 4 was also used to ideate names.
 
-## 
+## Unity Creating a City Builder | Prototype Series
+- https://youtu.be/d_zviIfcCHk?si=JDn46BzM2iP-pk9g
+- ⭐ Download the project https://on.unity.com/3pk8mTK
+- ⭐ Learn course https://on.unity.com/36ft7Z9
+
