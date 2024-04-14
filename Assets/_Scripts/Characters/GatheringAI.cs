@@ -80,16 +80,9 @@ public class GatheringAI : MonoBehaviour
 		_nextReturnTime = _generatedTimeOut;
 		Debug.Log($"Next Return time: {_generatedTimeOut - Time.realtimeSinceStartup}s from now.");
 		Vector3 _randomPosition = GetRandomPosition();
-		//float dist=agent.remainingDistance; if (dist!=Mathf.infinite && agent.pathStatus==NavMeshPathStatus.completed && agent.remainingDistance==0)
+		
 		GoToDestination( _randomPosition );
 	}
-	/// <summary>
-	/// Access point for a random location.
-	/// </summary>
-	/// <returns></returns>
-	//private static Vector3 GetRandomPosition () {
-	//	return new Vector3( Random.Range( -1 * _mapSize, _mapSize ), 0f, Random.Range( -1 * _mapSize, _mapSize ) );
-	//}
 
 	/// <summary>
 	/// Assigns this character's GatheringBuilding, updates _gatheringTimeout, updates _timeSpentGathering
@@ -140,8 +133,6 @@ public class GatheringAI : MonoBehaviour
 			point = Vector3.Lerp( firstVertexPosition, secondVertexPosition, Random.Range( 0.05f, 0.95f ) );
 		}
 
-		Debug.Log( $"Random point {point} is {Vector3.Distance( _gatheringBuilding.transform.position , point)}m from GatheringBuilding." );
-		
 		if ( Vector3.Distance( _gatheringBuilding.transform.position, point ) < _gatheringBuilding.GetComponent<Collider>().bounds.extents.y ) {
 			point = GetRandomPosition();
 		}
@@ -178,10 +169,7 @@ public class GatheringAI : MonoBehaviour
 
 		_agent.isStopped = true;
 
-		//Vector3 _awayFromGatheringBuilding = ;
-		//_agent.SetDestination(_awayFromGatheringBuilding );
 		_hasResources = false;
-
 		_nextGatheringRun = GetNextTime( _gatheringTimeout, 1.75f );
 	}
 }
