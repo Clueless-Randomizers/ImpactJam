@@ -1,13 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class CameraController : MonoBehaviour
 {
     [SerializeField] Vector2 zoomLimits;
     [SerializeField] float cameraSpeed;
-    [SerializeField] GameObject homeTarget;
     Transform mainCamera;
     Transform zoomObject;
     Vector2 input;
@@ -42,14 +40,10 @@ public class CameraController : MonoBehaviour
 
         Vector3 movementDirection = mainCamera.TransformDirection(moveInput);
         movementDirection.y = 0;
-        transform.position += movementDirection.normalized * (Time.deltaTime * cameraSpeed);
+        transform.position += movementDirection.normalized * Time.deltaTime * cameraSpeed;
 
         zoomObject.localPosition += new Vector3(0,0,-Input.mouseScrollDelta.y);
         zoomObject.localPosition = new Vector3(zoomObject.localPosition.x, zoomObject.localPosition.y,Mathf.Clamp(zoomObject.localPosition.z, zoomLimits.x, zoomLimits.y));
 
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            transform.position = homeTarget.transform.position;
-        }
     }
 }
