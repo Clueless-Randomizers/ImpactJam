@@ -41779,20 +41779,6 @@ Transform:
   - {fileID: 3269892127883563026}
   m_Father: {fileID: 2526181774154440240}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6915722608477310094
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8645496449162618680}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2dd5930d73b2028418b2ca90d080474e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyPrefabs:
-  - {fileID: 6999672903883802333, guid: 7f20f4725d5e78647b98a5ec1fcb2749, type: 3}
 --- !u!1 &6930526652976417014
 GameObject:
   m_ObjectHideFlags: 0
@@ -54027,7 +54013,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1833491946641468606}
-  - component: {fileID: 6915722608477310094}
   m_Layer: 0
   m_Name: EnemyManager
   m_TagString: Untagged
