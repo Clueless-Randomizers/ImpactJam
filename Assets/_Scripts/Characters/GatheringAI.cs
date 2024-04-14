@@ -48,8 +48,12 @@ public class GatheringAI : MonoBehaviour
 		if ( _isGathering ) {
 			CheckIfDoneGathering();
 		} else {
-			if ( _nextGatheringRun < Time.realtimeSinceStartup ) {
-				StartGathering();
+			if (_nextGatheringRun < Time.realtimeSinceStartup)
+			{
+				if (_gatheringBuilding != default)
+				{
+					StartGathering();
+				}
 			} 
 		}
 	}
