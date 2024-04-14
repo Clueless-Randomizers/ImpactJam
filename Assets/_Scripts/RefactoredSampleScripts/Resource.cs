@@ -1,4 +1,5 @@
-﻿using DG.Tweening;
+﻿using _Scripts.RefactoredSampleScripts.Builder;
+using DG.Tweening;
 using UnityEngine;
 
 namespace _Scripts.RefactoredSampleScripts

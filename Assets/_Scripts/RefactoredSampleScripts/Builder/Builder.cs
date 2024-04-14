@@ -1,7 +1,8 @@
 ﻿using System.Collections;
+using _Scripts.RefactoredSampleScripts.Agent;
 using UnityEngine;
 
-namespace _Scripts.RefactoredSampleScripts
+namespace _Scripts.RefactoredSampleScripts.Builder
 {
     public class Builder : Actor
     {

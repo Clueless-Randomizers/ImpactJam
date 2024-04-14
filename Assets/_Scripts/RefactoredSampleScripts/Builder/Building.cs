@@ -1,7 +1,7 @@
 ﻿using DG.Tweening;
 using UnityEngine;
 
-namespace _Scripts.RefactoredSampleScripts
+namespace _Scripts.RefactoredSampleScripts.Builder
 {
     [RequireComponent(typeof(Damageable))]
     public class Building : MonoBehaviour

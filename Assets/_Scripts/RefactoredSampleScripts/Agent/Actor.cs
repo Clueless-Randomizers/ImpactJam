@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace _Scripts.RefactoredSampleScripts
+namespace _Scripts.RefactoredSampleScripts.Agent
 {
     [RequireComponent(typeof(Damageable))]
     public class Actor : MonoBehaviour
