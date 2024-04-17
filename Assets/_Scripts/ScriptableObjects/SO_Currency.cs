@@ -37,24 +37,6 @@ namespace _Scripts.ScriptableObjects
                 }
             }
         }
-        /*
-        public int Value { 
-            get { return _currentCurrency; } 
-            set { 
-                int _newValue = _currentCurrency + value;  
-                int _oldValue = _currentCurrency;
-
-                _currentCurrency = Mathf.Max(0, _newValue);
-
-                if ( _currentCurrency != _oldValue ) {
-                    CurrencyChange?.Invoke();
-                }
-
-                // Log the value to the console
-                Debug.Log($"Value of {name} set to {_currentCurrency}");
-            }
-        }
-        */
 		
         /// <summary>
         /// Returns string representation of name without (clone) 
