@@ -74,6 +74,16 @@ public class GatheringAI : MonoBehaviour
 	}
 
 	/// <summary>
+	/// Checks if the unit is doing anything, acts on this if it is not busy.
+	/// </summary>
+	/// <param name="targetPosition"></param>
+	public void GoToDestinationIfNotGathering (Vector3 targetPosition) {
+		if (_isGathering || _hasResources) return;
+
+        GoToDestination(targetPosition);
+    }
+
+	/// <summary>
 	/// Tells NavMeshAgent SetDestination and isStopped = false.
 	/// </summary>
 	/// <param name="position"></param>
