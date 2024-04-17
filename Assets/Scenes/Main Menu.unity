@@ -1680,13 +1680,13 @@ PrefabInstance:
     - target: {fileID: 524042420316124973, guid: b33420637521c114b9acb1458dd4c20f,
         type: 3}
       propertyPath: level.guid
-      value: a7e81c0aeab9ce141a467a425470b23c
+      value: 1f8b375cb08028a41a08b816a65b2494
       objectReference: {fileID: 0}
     - target: {fileID: 524042420316124973, guid: b33420637521c114b9acb1458dd4c20f,
         type: 3}
       propertyPath: level.asset
       value: 
-      objectReference: {fileID: 102900000, guid: a7e81c0aeab9ce141a467a425470b23c,
+      objectReference: {fileID: 102900000, guid: 1f8b375cb08028a41a08b816a65b2494,
         type: 3}
     - target: {fileID: 524042420316124973, guid: b33420637521c114b9acb1458dd4c20f,
         type: 3}
