@@ -25,9 +25,7 @@ namespace _Scripts.RefactoredSampleScripts
 			Actor _actor = default;
 
 			if (Physics.Raycast( Camera.main.ScreenPointToRay( Input.mousePosition ), out RaycastHit info, 500, LayerMask.GetMask( "Player" ) )) {
-				Debug.Log("Found 'Player'");
 				if (info.transform.TryGetComponent(out Actor actor)) {
-					Debug.Log("Found 'Actor'" );
 					_actor = actor;
 				}
 			}
