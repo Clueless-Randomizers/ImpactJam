@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using _Scripts.RefactoredSampleScripts.Agent;
 using TMPro;
 using UnityEngine;
@@ -55,18 +56,18 @@ namespace _Scripts.RefactoredSampleScripts.Builder
 			buildingPreviewMesh = BuildingManager.instance.GetPrefab(index).GetComponentInChildren<MeshFilter>().sharedMesh;
 		}
 
-		string GetButtonText(Building b)
+		string GetButtonText(Building building)
 		{
-			PurchasePrice[] purchasePrices = b.PurchasePrices;
+			PurchasePrice[] _purchasePrices = building.PurchasePrices;
 
-			string buildingName = b.buildingName;
+			string _buildingName = building.buildingName;
 			
-			string resourceString = string.Empty;
-			//for (int j = 0; j < resourceAmount; j++)
-			foreach (PurchasePrice purchasePrice in purchasePrices)
-				resourceString += $"\n {purchasePrice.Currency.PresentableName} ({purchasePrice.Value})";
+			List<string> _resourceString = new();
 
-			return "<size=23><b>" + buildingName + "</b></size>" + resourceString;
+			foreach (PurchasePrice purchasePrice in _purchasePrices)
+				_resourceString.Add($"{purchasePrice.Currency.PresentableName} ({purchasePrice.Value})");
+
+			return "<size=23><b>" + _buildingName + "</b></size><br>" + String.Join("\n", _resourceString.ToArray() );
 		}
 	}
 }
