@@ -73,13 +73,21 @@ namespace _Scripts.RefactoredSampleScripts.Agent
                     SetTask();
                 }
             }
-
+            if (Input.GetMouseButtonUp(1))
+            {
+                if (!dragging)
+                {
+                    SetTask();
+                }
+            }
         }
 
         void SetTask()
         {
-            if (selectedActors.Count == 0)
+            if (selectedActors.Count == 0) { 
                 return;
+            }
+            
             Collider collider = Utility.CameraRay().collider;
             if (collider.CompareTag("Terrain"))
             {
@@ -88,18 +96,25 @@ namespace _Scripts.RefactoredSampleScripts.Agent
                     actor.SetDestination(Utility.MouseToTerrainPosition());
                 }
             }
-            else if (!collider.CompareTag("Player"))
+            
+            // If the tag is Player, then we will check if we can find different components to decide what to do.
+            if (collider.CompareTag("Player")) { return; }
+
+            if (collider.TryGetComponent(out GatheringBuilding building))
             {
-                if (collider.TryGetComponent(out Damageable damageable))
+                foreach (Actor actor in selectedActors)
                 {
-                    foreach (Actor actor in selectedActors)
-                    {
-                        actor.AttackTarget(damageable);
-                    }
+                    actor.AttachBuilding(building);
                 }
             }
-
-
+            
+            if (collider.TryGetComponent(out Damageable damageable))
+            {
+                foreach (Actor actor in selectedActors)
+                {
+                    actor.AttackTarget(damageable);
+                }
+            }
         }
 
         void SelectActors()

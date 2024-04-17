@@ -51,6 +51,7 @@ MonoBehaviour:
   _timeSpentGathering: 15
   _buildingCurrency: {fileID: 11400000, guid: 9681233a7aa7599429fe2cbd13e14792, type: 2}
   _maxGatheringPeople: 5
+  _gathererHatMaterial: {fileID: 0}
 --- !u!135 &1501393631229127193
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -70,7 +71,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 4.05
+  m_Radius: 2
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!208 &3844838492064809858
 NavMeshObstacle:

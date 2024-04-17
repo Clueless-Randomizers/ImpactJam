@@ -18,8 +18,10 @@ namespace _Scripts.RefactoredSampleScripts.Agent
 
         public bool isHover = false;
         bool isResource;
+		
+        private GatheringAI _gatheringAI;
 
-        private void Awake()
+		private void Awake()
         {
             damageable = GetComponent<Damageable>();
             agent = GetComponent<NavMeshAgent>();
@@ -28,7 +30,9 @@ namespace _Scripts.RefactoredSampleScripts.Agent
             visualHandler = GetComponent<ActorVisualHandler>();
             //animationEvent.attackEvent.AddListener(Attack);
             isResource = GetComponent<Resource>() ? true : false;
+            _gatheringAI = GetComponent<GatheringAI>();
         }
+
         public void Update()
         {
             //animator.SetFloat("Speed", Mathf.Clamp(agent.velocity.magnitude, 0, 1));
@@ -75,6 +79,14 @@ namespace _Scripts.RefactoredSampleScripts.Agent
                 }
 
                 currentTask = null;
+            }
+        }
+
+        public void AttachBuilding (GatheringBuilding gatheringBuilding)
+        {
+            if (_gatheringAI != default)
+            {
+                _gatheringAI.SetGatheringBuilding(gatheringBuilding);
             }
         }
         public virtual void StopTask()
