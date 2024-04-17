@@ -17,7 +17,6 @@ namespace _Scripts.RefactoredSampleScripts.Builder
         public static BuildingManager instance;
         private readonly List<Building> allBuildings = new();
         public Building[] buildingPrefabs;
-        public List<SO_Currency> currentResources = new();
 
         [SerializeField] private ParticleSystem buildParticle;
         [SerializeField] private ParticleSystem finishParticle;
@@ -48,7 +47,6 @@ namespace _Scripts.RefactoredSampleScripts.Builder
 			}
 		}
 
-
         public List<Building> GetBuildings()
         {
             return allBuildings;
@@ -73,21 +71,17 @@ namespace _Scripts.RefactoredSampleScripts.Builder
 
         public void AddResource(SO_Currency newResource)
         {
-            var resource = currentResources.Find(r => r.name == newResource.name);
+			var resource = GameManager.CurrencyManager.GetCurrency( newResource.name );
             if (resource != null)
             {
                 resource.Value += newResource.Value;
-            }
-            else
-            {
-                currentResources.Add(newResource);
             }
         }
 
         public void RemoveResource(SO_Currency resourceToRemove)
         {
-            var resource = currentResources.Find(r => r.name == resourceToRemove.name);
-            if (resource != null)
+			var resource = GameManager.CurrencyManager.GetCurrency( resourceToRemove.name );
+			if (resource != null)
             {
                 if (resource.Value >= resourceToRemove.Value)
                 {
@@ -103,8 +97,9 @@ namespace _Scripts.RefactoredSampleScripts.Builder
 
         public void UpdateResource(string resourceName, int newValue)
         {
-            var resourceToUpdate = currentResources.Find(resource => resource.PresentableName == resourceName);
-            if (resourceToUpdate != null) resourceToUpdate.Value = newValue;
+			var resourceToUpdate = GameManager.CurrencyManager.GetCurrency( resourceName );
+
+			if (resourceToUpdate != null) resourceToUpdate.Value = newValue;
         }
 
         public void PlayParticle(Vector3 position)
