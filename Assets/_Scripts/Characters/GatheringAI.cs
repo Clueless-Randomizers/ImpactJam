@@ -152,6 +152,9 @@ public class GatheringAI : MonoBehaviour
 	/// Resets current gathering Building.
 	/// </summary>
 	private void ResetGatheringBuilding () {
+		if (_gatheringBuilding != default) {
+			_gatheringBuilding.RemoveGatheringPerson( this );
+		}
 		_gatheringBuilding = default;
 		_gatheringTimeout = default;
 		_timeSpentGathering = default;
