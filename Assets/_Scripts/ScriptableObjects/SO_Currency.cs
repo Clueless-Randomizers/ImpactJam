@@ -33,7 +33,7 @@ namespace _Scripts.ScriptableObjects
                 if (value != _currentCurrency) {
                     _currentCurrency = Mathf.Max(0, value);
                     CurrencyChange?.Invoke();
-                    Debug.Log($"Value of {name} set to {_currentCurrency}");
+                    //Debug.Log($"Value of {name} set to {_currentCurrency}");
                 }
             }
         }
