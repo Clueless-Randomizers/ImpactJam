@@ -251,5 +251,13 @@ public class GatheringAI : MonoBehaviour
 
 		_nextGatheringRun = GetNextTime( _gatheringTimeout, 1.75f );
 	}
-
+	/// <summary>
+	/// Cancels whatever gathering is required and moves to indicated destination.
+	/// </summary>
+	/// <param name="targetDestination"></param>
+	public void CancelGatheringAndGoHere ( Vector3 targetDestination ) {
+		ResetGatheringStatus();
+		ResetGatheringBuilding();
+		GoToDestination( targetDestination );
+	}
 }

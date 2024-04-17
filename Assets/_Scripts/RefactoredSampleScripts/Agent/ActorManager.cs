@@ -101,7 +101,7 @@ namespace _Scripts.RefactoredSampleScripts.Agent
                 foreach (Actor actor in selectedActors)
                 {
                     GatheringAI _gatheringAI = actor.GetComponent<GatheringAI>();
-                    _gatheringAI.GoToDestinationIfNotGathering(Utility.MouseToTerrainPosition());
+                    _gatheringAI.CancelGatheringAndGoHere(Utility.MouseToTerrainPosition());
                 }
             }
             

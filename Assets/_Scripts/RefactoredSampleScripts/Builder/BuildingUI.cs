@@ -19,6 +19,7 @@ namespace _Scripts.RefactoredSampleScripts.Builder
 		{
 			canvasGroup = GetComponent<CanvasGroup>();
 		}
+
 		void Start()
 		{
 			Button[] buttons = GetComponentsInChildren<Button>();
