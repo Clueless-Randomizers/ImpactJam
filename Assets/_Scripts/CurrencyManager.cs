@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using _Scripts.ScriptableObjects;
 using UnityEngine;
@@ -33,9 +34,41 @@ namespace _Scripts
 				}
 			}
 		}
-
+		public SO_Currency[] GetCurrencies () {
+			return _currencies;
+		}
 		public SO_Currency GetCurrency (string name) {
 			return (_currencyRegister.ContainsKey( name ) ) ? _currencyRegister[ name ] :default;
 		}
+		/// <summary>
+		/// Checks if there are enough resources to buy the asked goods.
+		/// </summary>
+		/// <param name="prices"></param>
+		/// <returns></returns>
+		public bool CanAffordPurchase ( PurchasePrice[] prices) {
+			foreach ( PurchasePrice price in prices) {
+				SO_Currency _currency = GetCurrency(price.Currency.name);
+				UnityEngine.Debug.Log($"CurrentCurrencyValue: {_currency.Value}, Currency Price:{price.Value}");
+				if (_currency.Value < price.Value) {
+					return false;
+				}
+			}
+
+			return true;
+		}
+
+		public void DeductPurchase ( PurchasePrice[] purchasePrices ) {
+			foreach (PurchasePrice price in purchasePrices) {
+				SO_Currency _currency = GetCurrency( price.Currency.name );
+
+				// the -1 * price.Value makes the positive value into a negative one.
+				_currency.Value = -1 * price.Value;
+			}
+		}
+	}
+	[Serializable]
+	public struct PurchasePrice {
+		public int Value;
+		public SO_Currency Currency;
 	}
 }
