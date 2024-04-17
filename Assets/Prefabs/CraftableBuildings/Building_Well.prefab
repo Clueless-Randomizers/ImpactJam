@@ -146,6 +146,9 @@ MonoBehaviour:
   stateColors:
   - {r: 0.003921569, g: 0.003921569, b: 0.003921569, a: 1}
   - {r: 0.9320358, g: 0.9320358, b: 0.9320358, a: 1}
+  _purchasePrice:
+  - Value: 100
+    Currency: {fileID: 11400000, guid: 5712aa6662da1d546b6192cf5688643b, type: 2}
 --- !u!208 &9186422860277739761
 NavMeshObstacle:
   m_ObjectHideFlags: 0

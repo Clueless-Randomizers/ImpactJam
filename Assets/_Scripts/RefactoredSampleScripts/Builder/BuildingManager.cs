@@ -31,34 +31,22 @@ namespace _Scripts.RefactoredSampleScripts.Builder
         public void SpawnBuilding(int index, Vector3 position)
         {
             var building = buildingPrefabs[index];
-            var buildingCosts = building.GetBuildingCosts();
 
-            // Here you would check if the resources are sufficient and then deduct them
-            foreach (var cost in buildingCosts)
-            {
-                var resource = currentResources.Find(r => r.name == cost.name);
-                if (resource != null)
-                {
-                    if (resource.Value >= cost.Value)
-                    {
-                        resource.Value -= cost.Value;
-                    }
-                    else
-                    {
-                        Debug.Log($"Not enough {resource.name}: have {resource.Value}, need {cost.Value}");
-                        return;
-                    }
-                }
-                else
-                {
-                    Debug.Log($"Resource {cost.name} not found");
-                    return;
-                }
-            }
-            
-            // Instantiate the building as resources are sufficient
-            Instantiate(building, position, Quaternion.identity);
-        }
+			// Get purchase prices from building.cs
+			PurchasePrice[] _purchasePrices = building.PurchasePrices;
+
+			// Here you would check if the resources are sufficient and then deduct them
+			if (GameManager.CurrencyManager.CanAffordPurchase( _purchasePrices )) {
+				GameManager.CurrencyManager.DeductPurchase( _purchasePrices );
+
+				// Instantiate the building as resources are sufficient
+				Instantiate( building, position, Quaternion.identity );
+			}
+			else 
+			{
+				// This is where we should display some sort of juice to show that the building is too expensive.
+			}
+		}
 
 
         public List<Building> GetBuildings()

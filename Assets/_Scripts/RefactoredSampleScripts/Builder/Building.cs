@@ -9,33 +9,29 @@ namespace _Scripts.RefactoredSampleScripts.Builder
     [RequireComponent(typeof(Damageable))]
     public class Building : MonoBehaviour
     {
-        [SerializeField]
-        private List<SO_Currency> buildingCosts; // This will hold the cost of resources for building
-        
         public string buildingName;
+        
         [SerializeField] float height;
         public float radius = 5;
         float originalHeight;
         [SerializeField] int totalWorkToComplete = 100;
         int currentWork;
-        public int[] resourceCost = default;
         Transform buildingTransform;
         [HideInInspector] public Damageable attackable;
         public bool isHover = false;
         private bool done;
-        [ColorUsage(true, true)]
-        [SerializeField] private Color[] stateColors;
         MeshRenderer buildingRender;
+
         Cinemachine.CinemachineImpulseSource impulse;
+        [ColorUsage(true, true)] [SerializeField] private Color[] stateColors;
         private Tween buildingTween;
+
+		[Header("Building Prices")]
+		[SerializeField] private PurchasePrice[] _purchasePrice;
 
         private void Awake()
         {
             attackable = GetComponent<Damageable>();
-        }
-        public List<SO_Currency> GetBuildingCosts()
-        {
-            return buildingCosts;
         }
 
         void Start()
@@ -71,31 +67,10 @@ namespace _Scripts.RefactoredSampleScripts.Builder
             }
             return currentWork >= totalWorkToComplete;
         }
-        public bool CanBuild(List<SO_Currency> resources)
-        {
-            if (resources.Count >= resourceCost.Length)
-            {
-                for (int i = 0; i < resourceCost.Length; i++)
-                {
-                    if (resources[i].Value < resourceCost[i])
-                    {
-                        Debug.Log($"Not enough of resource {i}: have {resources[i].Value}, need {resourceCost[i]}");
-                        return false;
-                    }
-                }
-                return true;
-            }
-            else
-            {
-                // Handle the case where resources has fewer elements than resourceCost
-                Debug.Log("Not enough types of resources");
-                return false;
-            }
-        }
-        public int[] Cost()
-        {
-            return resourceCost;
-        }
+		/// <summary>
+		/// Returns PurchasePrices[]
+		/// </summary>
+		public PurchasePrice[] PurchasePrices { get { return _purchasePrice;} }
 
         private void OnMouseEnter()
         {

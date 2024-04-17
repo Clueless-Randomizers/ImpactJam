@@ -34,9 +34,18 @@ namespace _Scripts
 				}
 			}
 		}
+		/// <summary>
+		/// Returns all currencies registered.
+		/// </summary>
+		/// <returns></returns>
 		public SO_Currency[] GetCurrencies () {
 			return _currencies;
 		}
+		/// <summary>
+		/// Returns currency by name.
+		/// </summary>
+		/// <param name="name"></param>
+		/// <returns></returns>
 		public SO_Currency GetCurrency (string name) {
 			return (_currencyRegister.ContainsKey( name ) ) ? _currencyRegister[ name ] :default;
 		}
@@ -48,8 +57,8 @@ namespace _Scripts
 		public bool CanAffordPurchase ( PurchasePrice[] prices) {
 			foreach ( PurchasePrice price in prices) {
 				SO_Currency _currency = GetCurrency(price.Currency.name);
-				UnityEngine.Debug.Log($"CurrentCurrencyValue: {_currency.Value}, Currency Price:{price.Value}");
 				if (_currency.Value < price.Value) {
+					Debug.Log($"Not enough of resource {_currency.name}  have {_currency.Value}, need: {price.Value}");
 					return false;
 				}
 			}
@@ -69,7 +78,9 @@ namespace _Scripts
 			}
 		}
 	}
-
+	/// <summary>
+	/// This struct is used when storing Purchase Prices in Arrays and Lists
+	/// </summary>
 	[Serializable]
 	public struct PurchasePrice {
 		public int Value;

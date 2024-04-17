@@ -55,16 +55,18 @@ namespace _Scripts.RefactoredSampleScripts.Builder
             buildingPreviewMesh = BuildingManager.instance.GetPrefab(index).GetComponentInChildren<MeshFilter>().sharedMesh;
         }
 
-        string GetButtonText(Building b)
-        {
-            string buildingName = b.buildingName;
-            int resourceAmount = b.resourceCost.Length;
-            string[] resourceNames = new string[] { "Wood"};
-            string resourceString = string.Empty;
-            for (int j = 0; j < resourceAmount; j++)
-                resourceString += "\n " + resourceNames[j] + " (" + b.resourceCost[j] + ")";
+		string GetButtonText(Building b)
+		{
+			PurchasePrice[] purchasePrices = b.PurchasePrices;
 
-            return "<size=23><b>" + buildingName + "</b></size>" + resourceString;
-        }
-    }
+			string buildingName = b.buildingName;
+			
+			string resourceString = string.Empty;
+			//for (int j = 0; j < resourceAmount; j++)
+			foreach (PurchasePrice purchasePrice in purchasePrices)
+				resourceString += $"\n {purchasePrice.Currency.PresentableName} ({purchasePrice.Value})";
+
+			return "<size=23><b>" + buildingName + "</b></size>" + resourceString;
+		}
+	}
 }
