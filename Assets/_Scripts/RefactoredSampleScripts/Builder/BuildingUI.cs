@@ -38,6 +38,7 @@ namespace _Scripts.RefactoredSampleScripts.Builder
 			{
 				Vector3 position = Utility.MouseToTerrainPosition();
 				Graphics.DrawMesh(buildingPreviewMesh, position, Quaternion.identity, buildingPreviewMat, 0);
+
 				if (Input.GetMouseButtonDown(0))
 				{
 					BuildingManager.instance.SpawnBuilding(currentIndex, position);
@@ -53,7 +54,7 @@ namespace _Scripts.RefactoredSampleScripts.Builder
 			ActorManager.instance.DeselectActors();
 			canvasGroup.alpha = 0;
 			isPlacing = true;
-			buildingPreviewMesh = BuildingManager.instance.GetPrefab(index).GetComponentInChildren<MeshFilter>().sharedMesh;
+			buildingPreviewMesh = BuildingManager.instance.GetPrefab(index).GetBuildingPreviewMesh;
 		}
 
 		string GetButtonText(Building building)
