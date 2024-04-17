@@ -80,8 +80,8 @@ public class GatheringAI : MonoBehaviour
 	public void GoToDestinationIfNotGathering (Vector3 targetPosition) {
 		if (_isGathering || _hasResources) return;
 
-        GoToDestination(targetPosition);
-    }
+		GoToDestination(targetPosition);
+	}
 
 	/// <summary>
 	/// Tells NavMeshAgent SetDestination and isStopped = false.
@@ -118,13 +118,7 @@ public class GatheringAI : MonoBehaviour
 	public void SetGatheringBuilding(GatheringBuilding gatheringBuilding) {
 		// If gatheringBuilding is default, reset unit's gathering building to nothing.
 		if ( gatheringBuilding == default) {
-			_gatheringBuilding = default;
-			_gatheringTimeout = default;
-			_timeSpentGathering = default;
-			foreach ( Renderer hatPart in _hatRenderers ) {
-				hatPart.material = _hatMaterial;
-			}
-			_resourceImage.enabled = false;
+			ResetGatheringBuilding();
 			return;
 		}
 		// If gatheringbuilding is not default and we added this unit's GatheringAI-script to the gathering-building...
@@ -135,7 +129,9 @@ public class GatheringAI : MonoBehaviour
 			_gatheringBuilding = gatheringBuilding;
 
 			_gatheringTimeout = _gatheringBuilding.WorkerRestTime;
-
+			
+			_resourceImage.sprite = _gatheringBuilding.GetCurrency.Icon;
+			
 			// Divided by 2 to make the variable account for the whole time the character is spending gathering.
 			_timeSpentGathering = _gatheringBuilding.TimeSpentGathering / 2;
 
@@ -145,8 +141,39 @@ public class GatheringAI : MonoBehaviour
 					hatPart.material = gatheringBuildingHatMaterial;
 				}
 			}
+
+			ResetGatheringStatus();
+
+			GoToDestination( gatheringBuilding.transform.position );
 		}
 	}
+
+	/// <summary>
+	/// Resets current gathering Building.
+	/// </summary>
+	private void ResetGatheringBuilding () {
+		_gatheringBuilding = default;
+		_gatheringTimeout = default;
+		_timeSpentGathering = default;
+
+		foreach (Renderer hatPart in _hatRenderers) {
+			hatPart.material = _hatMaterial;
+		}
+
+		_resourceImage.enabled = false;
+	}
+
+	/// <summary>
+	/// Resets current GatheringStatus (_carryingResources, _hasResources, _isGathering, _resourceCounter)
+	/// </summary>
+	private void ResetGatheringStatus () {
+		_nextGatheringRun = _nextGatheringRun = GetNextTime( _gatheringTimeout, 1.75f );
+		_carryingResources = 0;
+		_hasResources = false;
+		_isGathering = false;
+		_resourceCounter.text = "";
+	}
+
 	/// <summary>
 	/// Creates a time in the future based on timeout and randomMultiplicator.
 	/// </summary>
@@ -168,7 +195,7 @@ public class GatheringAI : MonoBehaviour
 
 		int maxIndices = navMeshData.indices.Length - 3;
 
-		// pick the first indice of a random triangle in the nav mesh
+		// pick the first indices of a random triangle in the nav mesh
 		int firstVertexSelected = Random.Range( 0, maxIndices );
 		int secondVertexSelected = Random.Range( 0, maxIndices );
 
@@ -218,12 +245,11 @@ public class GatheringAI : MonoBehaviour
 	/// </summary>
 	private void DeliverCurrencyToCurrencyBuilding () {
 		_gatheringBuilding.AddCurrency( _carryingResources );
-		_carryingResources = 0;
-
 		_agent.isStopped = true;
 
-		_hasResources = false;
-		_resourceCounter.text = "";
+		ResetGatheringStatus();
+
 		_nextGatheringRun = GetNextTime( _gatheringTimeout, 1.75f );
 	}
+
 }
