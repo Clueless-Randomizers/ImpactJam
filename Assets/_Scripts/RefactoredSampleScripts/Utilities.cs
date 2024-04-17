@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿using _Scripts.RefactoredSampleScripts.Agent;
+using System;
+using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace _Scripts.RefactoredSampleScripts
 {
@@ -17,5 +20,19 @@ namespace _Scripts.RefactoredSampleScripts
                 return info;
             return new RaycastHit();
         }
-    }
+
+		public static Actor MouseToActor () {
+			Actor _actor = default;
+
+			if (Physics.Raycast( Camera.main.ScreenPointToRay( Input.mousePosition ), out RaycastHit info, 500, LayerMask.GetMask( "Player" ) )) {
+				Debug.Log("Found 'Player'");
+				if (info.transform.TryGetComponent(out Actor actor)) {
+					Debug.Log("Found 'Actor'" );
+					_actor = actor;
+				}
+			}
+
+			return _actor;
+		}
+	}
 }

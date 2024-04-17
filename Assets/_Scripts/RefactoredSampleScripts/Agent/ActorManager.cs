@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Prototype.Scripts;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -37,7 +38,7 @@ namespace _Scripts.RefactoredSampleScripts.Agent
             if (EventSystem.current.IsPointerOverGameObject())
             {
                 dragging = false;
-                return;
+				return;
             }
 
             if (Input.GetMouseButtonDown(0))
@@ -66,11 +67,17 @@ namespace _Scripts.RefactoredSampleScripts.Agent
                     SelectActors();
                     dragging = false;
                     selectionArea.gameObject.SetActive(false);
-
-                }
+                } 
                 else
                 {
-                    SetTask();
+					Actor _actor = Utility.MouseToActor();
+
+					if (_actor != default) {
+						selectedActors.Add( _actor );
+						_actor.visualHandler.Select();
+					} else {
+						DeselectActors();
+					}
                 }
             }
             if (Input.GetMouseButtonUp(1))
@@ -93,7 +100,8 @@ namespace _Scripts.RefactoredSampleScripts.Agent
             {
                 foreach (Actor actor in selectedActors)
                 {
-                    actor.SetDestination(Utility.MouseToTerrainPosition());
+                    GatheringAI _gatheringAI = actor.GetComponent<GatheringAI>();
+                    _gatheringAI.GoToDestinationIfNotGathering(Utility.MouseToTerrainPosition());
                 }
             }
             
