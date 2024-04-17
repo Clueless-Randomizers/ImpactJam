@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -105,5 +106,15 @@ namespace _Scripts.RefactoredSampleScripts.Agent
             isHover = false;
         }
 
-    }
+		//TODO: These two are to be removed as soon as SelectionObjectScript.cs has been deleted.
+		public void Deselect()
+		{
+            visualHandler.Deselect();
+        }
+
+		public void Select()
+		{
+            visualHandler.Select();
+        }
+	}
 }

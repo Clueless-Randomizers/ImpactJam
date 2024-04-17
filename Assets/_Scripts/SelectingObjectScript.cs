@@ -1,3 +1,4 @@
+using _Scripts.RefactoredSampleScripts.Agent;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,11 +6,10 @@ using UnityEngine;
 public class SelectingObjectScript : MonoBehaviour
 {
     [SerializeField] private GatheringAI _selectedGatheringAI;
-    [SerializeField] private GatheringBuilding _selectedGatheringBuilding;
-    void Start()
-    {
-        
-    }
+
+	[SerializeField] private GatheringBuilding _selectedGatheringBuilding;
+	
+    private Actor _selectedActor;
 
     
     void Update()
@@ -23,21 +23,29 @@ public class SelectingObjectScript : MonoBehaviour
             // Check if the ray hits anything
             if (Physics.Raycast(ray, out hit))
             {
-                if (hit.collider.gameObject.TryGetComponent(out GatheringAI ai))
+                if (hit.collider.gameObject.TryGetComponent(out Actor actor))
                 {
-                    _selectedGatheringAI = ai;
+                    _selectedActor = actor;
+                    _selectedActor.Select();
                 }
                 // Check if the object hit is a gathering building
-                else if (hit.collider.gameObject.TryGetComponent(out GatheringBuilding building) && _selectedGatheringAI != null)
+                else if (hit.collider.gameObject.TryGetComponent(out GatheringBuilding building) && _selectedActor != default)
                 {
                     _selectedGatheringBuilding = building;
-                    
+
                     // Assign the AI to the building
-                    _selectedGatheringAI.SetGatheringBuilding(_selectedGatheringBuilding);
+                    _selectedActor.AttachBuilding(_selectedGatheringBuilding);
+
                     // Reset the selected AI
-                    _selectedGatheringAI = null;
+                    _selectedActor = default;
                     _selectedGatheringBuilding = null;
-                }
+                } 
+                else
+                {
+					if (_selectedActor != default) { 
+						_selectedActor.Deselect();
+					}
+				}
             }
         }
     }
