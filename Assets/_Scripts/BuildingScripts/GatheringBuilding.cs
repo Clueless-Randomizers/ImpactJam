@@ -13,7 +13,7 @@ public class GatheringBuilding : MonoBehaviour
 	List<GatheringAI> _gatheringPeople = new();
 
 	private void Start () {
-		_buildingCurrency = GameManager.CurrencyManager.GetCurrency( _buildingCurrency.name );
+		_buildingCurrency = GameManager.CurrencyManager.GetCurrency( _buildingCurrency.PresentableName );
 	}
 
 	/// <summary>

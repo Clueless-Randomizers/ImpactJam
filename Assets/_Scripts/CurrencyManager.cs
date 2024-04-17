@@ -56,9 +56,9 @@ namespace _Scripts
 		/// <returns></returns>
 		public bool CanAffordPurchase ( PurchasePrice[] prices) {
 			foreach ( PurchasePrice price in prices) {
-				SO_Currency _currency = GetCurrency(price.Currency.name);
+				SO_Currency _currency = GetCurrency(price.Currency.PresentableName);
 				if (_currency.Value < price.Value) {
-					Debug.Log($"Not enough of resource {_currency.name}  have {_currency.Value}, need: {price.Value}");
+					Debug.Log($"Not enough of resource {_currency.PresentableName} have {_currency.Value}, need: {price.Value}");
 					return false;
 				}
 			}
@@ -71,7 +71,7 @@ namespace _Scripts
 		/// <param name="purchasePrices"></param>
 		public void DeductPurchase ( PurchasePrice[] purchasePrices ) {
 			foreach (PurchasePrice price in purchasePrices) {
-				SO_Currency _currency = GetCurrency( price.Currency.name );
+				SO_Currency _currency = GetCurrency( price.Currency.PresentableName );
 
 				// the -1 * price.Value makes the positive value into a negative one.
 				_currency.Value = -1 * price.Value;
