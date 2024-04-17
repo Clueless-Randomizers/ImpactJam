@@ -56,7 +56,10 @@ namespace _Scripts
 
 			return true;
 		}
-
+		/// <summary>
+		/// Deducts purchase prices from available resources.
+		/// </summary>
+		/// <param name="purchasePrices"></param>
 		public void DeductPurchase ( PurchasePrice[] purchasePrices ) {
 			foreach (PurchasePrice price in purchasePrices) {
 				SO_Currency _currency = GetCurrency( price.Currency.name );
@@ -66,6 +69,7 @@ namespace _Scripts
 			}
 		}
 	}
+
 	[Serializable]
 	public struct PurchasePrice {
 		public int Value;
