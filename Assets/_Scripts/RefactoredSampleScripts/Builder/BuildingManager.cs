@@ -24,6 +24,7 @@ namespace _Scripts.RefactoredSampleScripts.Builder
 
         private void Awake()
         {
+			GameManager.BuildingManager = this;
             instance = this;
         }
 

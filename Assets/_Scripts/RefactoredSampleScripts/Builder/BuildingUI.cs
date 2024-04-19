@@ -11,7 +11,6 @@ namespace _Scripts.RefactoredSampleScripts.Builder
 	{
 		CanvasGroup canvasGroup;
 		bool isPlacing = false;
-		int currentIndex = 0;
 		
 		Mesh buildingPreviewMesh;
 		[SerializeField] Material buildingPreviewMat;
@@ -28,7 +27,7 @@ namespace _Scripts.RefactoredSampleScripts.Builder
 
 		void Start()
 		{
-			foreach (Building building in BuildingManager.instance.buildingPrefabs) {
+			foreach (Building building in GameManager.BuildingManager.buildingPrefabs) {
 				GameObject _newButtonGameObject = Instantiate( _buttonPrefab, transform );
 
 				if (_newButtonGameObject.TryGetComponent( out Button button )) {
@@ -70,6 +69,7 @@ namespace _Scripts.RefactoredSampleScripts.Builder
 
 		string GetButtonText(Building building)
 		{
+			Debug.Log( building );
 			PurchasePrice[] _purchasePrices = building.PurchasePrices;
 
 			string _buildingName = building.buildingName;
