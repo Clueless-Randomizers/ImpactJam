@@ -7,19 +7,26 @@ namespace _Scripts.RefactoredSampleScripts
     {
         [HideInInspector] public UnityEvent onDestroy = new UnityEvent();
         [HideInInspector] public UnityEvent onHit = new UnityEvent();
+
         [SerializeField] int totalHealth = 100;
-        public int currentHealth;
+        public int CurrentHealth;
+		public bool Indestructible = false;
+
         private void Start()
         {
-            currentHealth = totalHealth;
+            CurrentHealth = totalHealth;
         }
 
         public void Hit(int damage)
         {
+			if (Indestructible) {
+				return;
+			}
             onHit.Invoke();
-            currentHealth -= damage;
-            if (currentHealth <= 0)
-                Destroy();
+            CurrentHealth -= damage;
+            if (CurrentHealth <= 0) {
+				Destroy();
+			}
         }
         void Destroy()
         {
