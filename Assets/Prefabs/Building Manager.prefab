@@ -19594,6 +19594,7 @@ MonoBehaviour:
   - {fileID: 3403428430999344919, guid: 7014828e23bee904097b8cb5141352d1, type: 3}
   - {fileID: -1978722174784642183, guid: 7318b2d4774aeff4da25ca3ca4684821, type: 3}
   - {fileID: 1074880043011713563, guid: aa58277bc8958c14780b2cc47735fe83, type: 3}
+  - {fileID: -1978722174784642183, guid: a1b1e38218329de489a401aa8c651f3a, type: 3}
   buildParticle: {fileID: 80582188917512506}
   finishParticle: {fileID: 0}
 --- !u!1 &5485490141685623511
