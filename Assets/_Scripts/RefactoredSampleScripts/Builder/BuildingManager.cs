@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using _Scripts.ScriptableObjects;
 using UnityEngine;
+using UnityEngine.Events;
 using Random = UnityEngine.Random;
 
 namespace _Scripts.RefactoredSampleScripts.Builder
@@ -22,7 +23,9 @@ namespace _Scripts.RefactoredSampleScripts.Builder
         [SerializeField] private ParticleSystem finishParticle;
         private BuildingUI ui;
 
-        private void Awake()
+		public UnityEvent<Building> OnBuilt;
+
+		private void Awake()
         {
 			GameManager.BuildingManager = this;
             instance = this;
@@ -34,6 +37,9 @@ namespace _Scripts.RefactoredSampleScripts.Builder
 
 			// Here you would check if the resources are sufficient and then deduct them
 			if (GameManager.CurrencyManager.CanAffordPurchase( _purchasePrices )) {
+				OnBuilt?.Invoke( building );
+
+
 				GameManager.CurrencyManager.DeductPurchase( _purchasePrices );
 
 				// Instantiate the building as resources are sufficient
