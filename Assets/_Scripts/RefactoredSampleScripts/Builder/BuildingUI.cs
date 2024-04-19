@@ -69,7 +69,6 @@ namespace _Scripts.RefactoredSampleScripts.Builder
 
 		string GetButtonText(Building building)
 		{
-			Debug.Log( building );
 			PurchasePrice[] _purchasePrices = building.PurchasePrices;
 
 			string _buildingName = building.buildingName;

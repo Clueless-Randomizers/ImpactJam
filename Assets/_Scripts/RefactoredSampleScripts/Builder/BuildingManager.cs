@@ -7,29 +7,29 @@ using Random = UnityEngine.Random;
 
 namespace _Scripts.RefactoredSampleScripts.Builder
 {
-    public enum ResourceType
-    {
-        Wood,
-        Stone
-    }
+	public enum ResourceType
+	{
+		Wood,
+		Stone
+	}
 
-    public class BuildingManager : MonoBehaviour
-    {
-        public static BuildingManager instance;
-        private readonly List<Building> allBuildings = new();
-        public Building[] buildingPrefabs;
+	public class BuildingManager : MonoBehaviour
+	{
+		public static BuildingManager instance;
+		private readonly List<Building> allBuildings = new();
+		public Building[] buildingPrefabs;
 
-        [SerializeField] private ParticleSystem buildParticle;
-        [SerializeField] private ParticleSystem finishParticle;
-        private BuildingUI ui;
+		[SerializeField] private ParticleSystem buildParticle;
+		[SerializeField] private ParticleSystem finishParticle;
+		private BuildingUI ui;
 
 		public UnityEvent<Building> OnBuilt;
 
 		private void Awake()
-        {
+		{
 			GameManager.BuildingManager = this;
-            instance = this;
-        }
+			instance = this;
+		}
 
 		public void SpawnBuilding ( Building building, Vector3 position ) {
 			// Get purchase prices from building.cs
@@ -52,63 +52,63 @@ namespace _Scripts.RefactoredSampleScripts.Builder
 		}
 
 		public List<Building> GetBuildings()
-        {
-            return allBuildings;
-        }
+		{
+			return allBuildings;
+		}
 
-        public Building GetRandomBuilding()
-        {
-            if (allBuildings.Count > 0) { 
-                return allBuildings[Random.Range(0, allBuildings.Count)];
+		public Building GetRandomBuilding()
+		{
+			if (allBuildings.Count > 0) { 
+				return allBuildings[Random.Range(0, allBuildings.Count)];
 			}
 			return null;
-        }
+		}
 
-        public void RemoveBuilding(Building building)
-        {
-            allBuildings.Remove(building);
-        }
+		public void RemoveBuilding(Building building)
+		{
+			allBuildings.Remove(building);
+		}
 
-        public void AddResource(SO_Currency newResource)
-        {
+		public void AddResource(SO_Currency newResource)
+		{
 			var resource = GameManager.CurrencyManager.GetCurrency( newResource.name );
-            if (resource != null)
-            {
-                resource.Value += newResource.Value;
-            }
-        }
+			if (resource != null)
+			{
+				resource.Value += newResource.Value;
+			}
+		}
 
-        public void RemoveResource(SO_Currency resourceToRemove)
-        {
+		public void RemoveResource(SO_Currency resourceToRemove)
+		{
 			var resource = GameManager.CurrencyManager.GetCurrency( resourceToRemove.name );
 			if (resource != null)
-            {
-                if (resource.Value >= resourceToRemove.Value)
-                {
-                    resource.Value -= resourceToRemove.Value;
-                }
-                else
-                {
-                    Debug.LogError($"Attempted to remove more {resource.name} than available. Available: {resource.Value}, Attempted to remove: {resourceToRemove.Value}");
-                    // Do not set resource.Value to 0; just log the error.
-                }
-            }
-        }
+			{
+				if (resource.Value >= resourceToRemove.Value)
+				{
+					resource.Value -= resourceToRemove.Value;
+				}
+				else
+				{
+					Debug.LogError($"Attempted to remove more {resource.name} than available. Available: {resource.Value}, Attempted to remove: {resourceToRemove.Value}");
+					// Do not set resource.Value to 0; just log the error.
+				}
+			}
+		}
 
-        public void UpdateResource(string resourceName, int newValue)
-        {
+		public void UpdateResource(string resourceName, int newValue)
+		{
 			var resourceToUpdate = GameManager.CurrencyManager.GetCurrency( resourceName );
 
 			if (resourceToUpdate != null) resourceToUpdate.Value = newValue;
-        }
+		}
 
-        public void PlayParticle(Vector3 position)
-        {
-            if (buildParticle)
-            {
-                buildParticle.transform.position = position;
-                buildParticle.Play();
-            }
-        }
-    }
+		public void PlayParticle(Vector3 position)
+		{
+			if (buildParticle)
+			{
+				buildParticle.transform.position = position;
+				buildParticle.Play();
+			}
+		}
+	}
 }
