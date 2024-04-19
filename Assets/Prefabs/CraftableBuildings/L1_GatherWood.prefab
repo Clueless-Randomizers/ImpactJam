@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3315799852377238757}
-  - component: {fileID: 5454550702440661385}
   - component: {fileID: -1978722174784642183}
+  - component: {fileID: 5454550702440661385}
   - component: {fileID: 1501393631229127193}
   - component: {fileID: 3844838492064809858}
   - component: {fileID: 1053210503894367737}
@@ -38,24 +38,6 @@ Transform:
   - {fileID: 4455460578746219648}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5454550702440661385
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4194352538829425901}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0510d64f8292b6b419ac7428bdf3c32c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _timeBetweenGathering: 3
-  _timeSpentGathering: 10
-  _buildingCurrency: {fileID: 11400000, guid: 5712aa6662da1d546b6192cf5688643b, type: 2}
-  _maxGatheringPeople: 5
-  _gathererHatMaterial: {fileID: 2100000, guid: 1e324ee54c7d8de429d9bc922809b8f5,
-    type: 2}
 --- !u!114 &-1978722174784642183
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79,6 +61,24 @@ MonoBehaviour:
   _purchasePrice:
   - Value: 25
     Currency: {fileID: 11400000, guid: 5712aa6662da1d546b6192cf5688643b, type: 2}
+--- !u!114 &5454550702440661385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4194352538829425901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0510d64f8292b6b419ac7428bdf3c32c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _timeBetweenGathering: 3
+  _timeSpentGathering: 10
+  _buildingCurrency: {fileID: 11400000, guid: 5712aa6662da1d546b6192cf5688643b, type: 2}
+  _maxGatheringPeople: 5
+  _gathererHatMaterial: {fileID: 2100000, guid: 1e324ee54c7d8de429d9bc922809b8f5,
+    type: 2}
 --- !u!135 &1501393631229127193
 SphereCollider:
   m_ObjectHideFlags: 0
