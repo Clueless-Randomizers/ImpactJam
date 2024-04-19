@@ -34,7 +34,7 @@ namespace _Scripts.RefactoredSampleScripts.Builder {
 		}
 
 		private void Update () {
-			if (_wonGameTimer < Time.realtimeSinceStartup) {
+			if (_wonGameTimer != default &&  _wonGameTimer < Time.realtimeSinceStartup) {
 				SceneManager.LoadScene( _winLevelReference.Name );
 			}
 		}
