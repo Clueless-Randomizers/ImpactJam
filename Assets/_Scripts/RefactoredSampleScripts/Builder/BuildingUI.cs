@@ -68,13 +68,6 @@ namespace _Scripts.RefactoredSampleScripts.Builder
 			buildingPreviewMesh = _currentBuilding.GetBuildingPreviewMesh;
 		}
 
-		void SelectBuilding ( Building building ) {
-			ActorManager.instance.DeselectActors();
-			canvasGroup.alpha = 0;
-			isPlacing = true;
-			buildingPreviewMesh = building.GetBuildingPreviewMesh;
-		}
-
 		string GetButtonText(Building building)
 		{
 			PurchasePrice[] _purchasePrices = building.PurchasePrices;
@@ -83,8 +76,9 @@ namespace _Scripts.RefactoredSampleScripts.Builder
 			
 			List<string> _resourceString = new();
 
-			foreach (PurchasePrice purchasePrice in _purchasePrices)
+			foreach (PurchasePrice purchasePrice in _purchasePrices) { 
 				_resourceString.Add($"{purchasePrice.Currency.PresentableName} ({purchasePrice.Value})");
+			}
 
 			return "<size=23><b>" + _buildingName + "</b></size><br>" + String.Join("\n", _resourceString.ToArray() );
 		}

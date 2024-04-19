@@ -27,10 +27,7 @@ namespace _Scripts.RefactoredSampleScripts.Builder
             instance = this;
         }
 
-        public void SpawnBuilding(int index, Vector3 position)
-        {
-            var building = buildingPrefabs[index];
-
+		public void SpawnBuilding ( Building building, Vector3 position ) {
 			// Get purchase prices from building.cs
 			PurchasePrice[] _purchasePrices = building.PurchasePrices;
 
@@ -46,37 +43,18 @@ namespace _Scripts.RefactoredSampleScripts.Builder
 				// This is where we should display some sort of juice to show that the building is too expensive.
 			}
 		}
-		public void SpawnBuilding ( Building building, Vector3 position ) {
-			// Get purchase prices from building.cs
-			PurchasePrice[] _purchasePrices = building.PurchasePrices;
-
-			// Here you would check if the resources are sufficient and then deduct them
-			if (GameManager.CurrencyManager.CanAffordPurchase( _purchasePrices )) {
-				GameManager.CurrencyManager.DeductPurchase( _purchasePrices );
-
-				// Instantiate the building as resources are sufficient
-				Instantiate( building, position, Quaternion.identity );
-			}
-			else {
-				// This is where we should display some sort of juice to show that the building is too expensive.
-			}
-		}
 
 		public List<Building> GetBuildings()
         {
             return allBuildings;
         }
 
-        public Building GetPrefab(int index)
-        {
-            return buildingPrefabs[index];
-        }
-
         public Building GetRandomBuilding()
         {
-            if (allBuildings.Count > 0)
+            if (allBuildings.Count > 0) { 
                 return allBuildings[Random.Range(0, allBuildings.Count)];
-            return null;
+			}
+			return null;
         }
 
         public void RemoveBuilding(Building building)
