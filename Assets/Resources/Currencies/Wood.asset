@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1db0b74283b1c2144ae0627a9e3e2017, type: 3}
   m_Name: Wood
   m_EditorClassIdentifier: 
-  _currentCurrency: 100
+  _currentCurrency: 25
   _currencyImage: {fileID: 21300000, guid: e0eac6b76fdd842e88a7f8c75ecffaf4, type: 3}
   CurrencyChange:
     m_PersistentCalls:
