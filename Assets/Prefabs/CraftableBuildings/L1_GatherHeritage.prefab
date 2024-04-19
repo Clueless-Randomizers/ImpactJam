@@ -78,7 +78,7 @@ MonoBehaviour:
   _timeBetweenGathering: 2
   _timeSpentGathering: 10
   _buildingCurrency: {fileID: 11400000, guid: e38c6c53edfc43e4489b4e8cc5673889, type: 2}
-  _maxGatheringPeople: 5
+  _maxGatheringPeople: 2
   _gathererHatMaterial: {fileID: 2100000, guid: 3511ce8bd6be97e49aedc89aba642607,
     type: 2}
 --- !u!135 &1501393631229127193

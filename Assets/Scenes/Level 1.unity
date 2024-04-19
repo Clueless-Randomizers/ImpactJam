@@ -10598,24 +10598,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 188114924443357560, guid: 272ca09db89c03b47983d2744d4ce0b5,
-        type: 3}
-      propertyPath: 'buildingPrefabs.Array.data[0]'
-      value: 
-      objectReference: {fileID: -1978722174784642183, guid: 7318b2d4774aeff4da25ca3ca4684821,
-        type: 3}
-    - target: {fileID: 188114924443357560, guid: 272ca09db89c03b47983d2744d4ce0b5,
-        type: 3}
-      propertyPath: 'buildingPrefabs.Array.data[1]'
-      value: 
-      objectReference: {fileID: 1074880043011713563, guid: aa58277bc8958c14780b2cc47735fe83,
-        type: 3}
-    - target: {fileID: 188114924443357560, guid: 272ca09db89c03b47983d2744d4ce0b5,
-        type: 3}
-      propertyPath: 'buildingPrefabs.Array.data[2]'
-      value: 
-      objectReference: {fileID: 3403428430999344919, guid: a33eccb77eec61047b63778e1b736c01,
-        type: 3}
     - target: {fileID: 786660732671178335, guid: 272ca09db89c03b47983d2744d4ce0b5,
         type: 3}
       propertyPath: m_LocalPosition.x
