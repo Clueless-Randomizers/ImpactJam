@@ -39,10 +39,29 @@ License: Standard Unity Asset Store EULA
 Link: https://assetstore.unity.com/packages/essentials/tutorial-projects/ui-toolkit-sample-dragon-crashers-231178
 Version: 1.40
 
+## Medieval Village Pack
+License: Sunday, Aug 28, 2022 • Licence: Public Domain (CC0)
+Link: https://poly.pizza/bundle/Medieval-Village-Pack-NsHhjhlrfY
+Version: ?
+ 
+
+## Pyramid
+License: Oct 21, 2017 • OBJ/GLTF format • Creative Commons Attribution
+Link: https://poly.pizza/m/c-tEGK9e49p
+Version: ?
+ 
+
 ## 
 License: Unity Asset Store
 Link: 
 Version: 
+ 
+
+## 
+License: Unity Asset Store
+Link: 
+Version: 
+ 
 
 # Generative AI
 ## Chat GPT 4
