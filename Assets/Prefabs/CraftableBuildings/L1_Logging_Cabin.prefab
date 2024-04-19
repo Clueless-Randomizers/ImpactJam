@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3844838492064809858}
   - component: {fileID: 1053210503894367737}
   m_Layer: 0
-  m_Name: L1_Farm_Houser
+  m_Name: L1_Logging_Cabin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -134,7 +134,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   totalHealth: 100
-  currentHealth: 0
+  currentHealth: 100
+  Indestructible: 1
 --- !u!1 &7704766540545742372
 GameObject:
   m_ObjectHideFlags: 0

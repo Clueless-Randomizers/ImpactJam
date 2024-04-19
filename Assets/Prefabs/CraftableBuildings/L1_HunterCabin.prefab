@@ -135,6 +135,7 @@ MonoBehaviour:
       m_Calls: []
   totalHealth: 100
   currentHealth: 100
+  Indestructible: 1
 --- !u!1 &7704766540545742372
 GameObject:
   m_ObjectHideFlags: 0
