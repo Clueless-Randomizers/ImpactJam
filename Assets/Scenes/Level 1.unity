@@ -2258,6 +2258,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameUI
       objectReference: {fileID: 0}
+    - target: {fileID: 4481712497734391591, guid: 183e341f668ae824c836172ffd22964b,
+        type: 3}
+      propertyPath: _winLevelReference.guid
+      value: 743fb6b70ed920a4d9f76550a91f549d
+      objectReference: {fileID: 0}
+    - target: {fileID: 4481712497734391591, guid: 183e341f668ae824c836172ffd22964b,
+        type: 3}
+      propertyPath: _winLevelReference.asset
+      value: 
+      objectReference: {fileID: 102900000, guid: 743fb6b70ed920a4d9f76550a91f549d,
+        type: 3}
     - target: {fileID: 5393859698270500908, guid: 183e341f668ae824c836172ffd22964b,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -2317,6 +2328,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6388542914116024615, guid: 183e341f668ae824c836172ffd22964b,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 380
+      objectReference: {fileID: 0}
+    - target: {fileID: 6388542914116024615, guid: 183e341f668ae824c836172ffd22964b,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 197.1
       objectReference: {fileID: 0}
     - target: {fileID: 7228418231746156742, guid: 183e341f668ae824c836172ffd22964b,
         type: 3}
