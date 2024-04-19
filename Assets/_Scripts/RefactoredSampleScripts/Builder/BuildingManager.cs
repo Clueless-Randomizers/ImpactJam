@@ -46,8 +46,23 @@ namespace _Scripts.RefactoredSampleScripts.Builder
 				// This is where we should display some sort of juice to show that the building is too expensive.
 			}
 		}
+		public void SpawnBuilding ( Building building, Vector3 position ) {
+			// Get purchase prices from building.cs
+			PurchasePrice[] _purchasePrices = building.PurchasePrices;
 
-        public List<Building> GetBuildings()
+			// Here you would check if the resources are sufficient and then deduct them
+			if (GameManager.CurrencyManager.CanAffordPurchase( _purchasePrices )) {
+				GameManager.CurrencyManager.DeductPurchase( _purchasePrices );
+
+				// Instantiate the building as resources are sufficient
+				Instantiate( building, position, Quaternion.identity );
+			}
+			else {
+				// This is where we should display some sort of juice to show that the building is too expensive.
+			}
+		}
+
+		public List<Building> GetBuildings()
         {
             return allBuildings;
         }

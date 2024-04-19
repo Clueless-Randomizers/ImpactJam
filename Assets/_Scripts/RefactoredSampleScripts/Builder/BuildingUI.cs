@@ -15,6 +15,12 @@ namespace _Scripts.RefactoredSampleScripts.Builder
 		
 		Mesh buildingPreviewMesh;
 		[SerializeField] Material buildingPreviewMat;
+
+		[SerializeField] GameObject _buttonPrefab;
+
+		private Dictionary<Button, Building> _buttonRegister = new();
+		private Building _currentBuilding;
+
 		private void Awake()
 		{
 			canvasGroup = GetComponent<CanvasGroup>();
@@ -22,14 +28,17 @@ namespace _Scripts.RefactoredSampleScripts.Builder
 
 		void Start()
 		{
-			Button[] buttons = GetComponentsInChildren<Button>();
-			for (int i = 0; i < buttons.Length; i++)
-			{
-				int index = i;
-				buttons[index].onClick.AddListener(() => SelectBuilding(index));
+			foreach (Building building in BuildingManager.instance.buildingPrefabs) {
+				GameObject _newButtonGameObject = Instantiate( _buttonPrefab, transform );
 
-				Building b = BuildingManager.instance.buildingPrefabs[index];
-				buttons[index].GetComponentInChildren<TextMeshProUGUI>().text = GetButtonText(b);
+				if (_newButtonGameObject.TryGetComponent( out Button button )) {
+					_buttonRegister.Add(button, building);
+
+					button.onClick.AddListener( () => SelectBuilding(button) ) ;
+
+					button.GetComponentInChildren<TMP_Text>().text = GetButtonText( building );
+
+				}
 			}
 		}
 
@@ -42,20 +51,28 @@ namespace _Scripts.RefactoredSampleScripts.Builder
 
 				if (Input.GetMouseButtonDown(0))
 				{
-					BuildingManager.instance.SpawnBuilding(currentIndex, position);
+					BuildingManager.instance.SpawnBuilding( _currentBuilding, position);
+
 					canvasGroup.alpha = 1;
 					isPlacing = false;
+					_currentBuilding = default;
 				}
 			}
 		}
+		void SelectBuilding ( Button button  ) {
+			_currentBuilding = _buttonRegister[ button ];
 
-		void SelectBuilding(int index)
-		{
-			currentIndex = index;
 			ActorManager.instance.DeselectActors();
 			canvasGroup.alpha = 0;
 			isPlacing = true;
-			buildingPreviewMesh = BuildingManager.instance.GetPrefab(index).GetBuildingPreviewMesh;
+			buildingPreviewMesh = _currentBuilding.GetBuildingPreviewMesh;
+		}
+
+		void SelectBuilding ( Building building ) {
+			ActorManager.instance.DeselectActors();
+			canvasGroup.alpha = 0;
+			isPlacing = true;
+			buildingPreviewMesh = building.GetBuildingPreviewMesh;
 		}
 
 		string GetButtonText(Building building)
