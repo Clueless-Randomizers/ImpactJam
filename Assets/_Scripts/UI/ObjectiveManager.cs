@@ -2,6 +2,7 @@ using Eflatun.SceneReference;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 
@@ -10,10 +11,14 @@ namespace _Scripts.RefactoredSampleScripts.Builder {
 		[SerializeField] List<Building> _requiredBuildings = new();
 		[SerializeField] Transform _objectivesPanel;
 		[SerializeField] GameObject _objectivesTextPrefab;
+
+		[Header("WinGame Config")]
 		[SerializeField] SceneReference _winLevelReference;
+		[SerializeField] float _winGameDelay = 15f;
 
 		private Dictionary<Building, TMP_Text> _buildingObjectivesText = new();
 		private Dictionary<string, bool> _objectivesMet = new();
+		private float _wonGameTimer;
 
 		void Start () {
 			GameManager.BuildingManager.OnBuilt.AddListener((Building building) => CheckIfObjectiveMetBuilding(building) );
@@ -28,9 +33,17 @@ namespace _Scripts.RefactoredSampleScripts.Builder {
 			}
 		}
 
+		private void Update () {
+			if (_wonGameTimer < Time.realtimeSinceStartup) {
+				SceneManager.LoadScene( _winLevelReference.Name );
+			}
+		}
+
 		private void CheckIfObjectiveMetBuilding (Building building) {
 			if (building != default && _requiredBuildings.Contains( building ) && _buildingObjectivesText.ContainsKey( building )) {
 				RedrawBuildingObjectives(building);
+				_objectivesMet[ building.buildingName ] = true;
+				CheckIfLevelWon();
 			}
 		}
 
@@ -44,8 +57,7 @@ namespace _Scripts.RefactoredSampleScripts.Builder {
 					return;
 				}
 			}
-
-			SceneManager.LoadScene(_winLevelReference.Name);
+			_wonGameTimer = Time.realtimeSinceStartup + 15;
 		}
 	}
 }
