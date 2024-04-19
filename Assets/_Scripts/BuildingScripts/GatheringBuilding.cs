@@ -58,7 +58,7 @@ public class GatheringBuilding : MonoBehaviour
 	/// </summary>
 	/// <param name="currency"></param>
 	public void AddCurrency (int currency) {
-		_buildingCurrency.Value = currency;
+		_buildingCurrency.Value += currency;
 	}
 
 	/// <summary>
