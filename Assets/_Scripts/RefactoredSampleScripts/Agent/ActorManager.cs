@@ -118,6 +118,9 @@ namespace _Scripts.RefactoredSampleScripts.Agent
             
             if (collider.TryGetComponent(out Damageable damageable))
             {
+				// If target is indestructible, let's not do anything.
+				if (damageable.Indestructible) { return; }
+
                 foreach (Actor actor in selectedActors)
                 {
                     actor.AttackTarget(damageable);
