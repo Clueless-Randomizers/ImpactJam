@@ -74,7 +74,7 @@ namespace _Scripts
 				SO_Currency _currency = GetCurrency( price.Currency.PresentableName );
 
 				// the -1 * price.Value makes the positive value into a negative one.
-				_currency.Value = -1 * price.Value;
+				_currency.Value += -1 * price.Value;
 			}
 		}
 	}
